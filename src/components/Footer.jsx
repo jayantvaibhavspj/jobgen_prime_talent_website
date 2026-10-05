@@ -148,14 +148,35 @@ export default function Footer({ onOpenPortal }) {
 
         {/* Bottom Legal & Copyright Bar */}
         <div className="footer-bottom-bar">
-          <p className="footer-copyright">
-            © 2026 Prime Talent Solutions Pty Ltd. ABN 89 678 123 456. Level 49, 8 Parramatta Square, Sydney NSW 2150. All rights reserved.
-          </p>
-          <div className="footer-legal-links">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Engagement</a>
-            <a href="#security">APRA CPS 234 Compliance</a>
-            <a href="#governance">Modern Slavery Statement</a>
+          <div className="footer-bottom-info">
+            <p className="footer-copyright">
+              © 2026 Prime Talent Solutions Pty Ltd. ABN 89 678 123 456. Level 49, 8 Parramatta Square, Sydney NSW 2150. All rights reserved.
+            </p>
+            <div className="footer-legal-links">
+              <a href="#privacy">Privacy Policy</a>
+              <a href="#terms">Terms of Engagement</a>
+              <a href="#security">APRA CPS 234 Compliance</a>
+              <a href="#governance">Modern Slavery Statement</a>
+            </div>
+          </div>
+
+          {/* Right Corner: Powered by JobGen */}
+          <div className="footer-powered-by">
+            <span className="footer-powered-text">Powered by</span>
+            <a 
+              href="https://jobgen.ai" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="footer-powered-link"
+              title="JobGen.ai - Autonomous Tech Sourcing Engine"
+            >
+              <img 
+                src="/assets/jobgen-logo.png" 
+                alt="JobGen Logo" 
+                className="footer-powered-logo" 
+              />
+              <span className="footer-powered-brand">JobGen<strong>.ai</strong></span>
+            </a>
           </div>
         </div>
       </div>
