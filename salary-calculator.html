@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 IT Day Rate Index | Prime Talent Solutions</title>
+  <meta name="description" content="Prime Talent Solutions Pty Ltd. Specialized IT recruitment in Cloud, Data & AI, and Cybersecurity across Australia. Led personally by Ashwin Shiv (18+ yrs). Powered by JobGen.ai.">
+  
+  <link rel="icon" type="image/png" href="assets/jobgen-logo.png">
+
+  <!-- Modern Luxury Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Floating Capsule Navbar -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-capsule">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo" aria-label="Prime Talent Solutions">
+          <img src="assets/prime-talent-logo.png" alt="Prime Talent Solutions Logo" class="brand-logo-img">
+          <div class="brand-text">
+            <span class="brand-title">PRIME TALENT</span>
+            <span class="brand-subtitle">SOLUTIONS</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation (Clean & Minimal) -->
+        <nav class="desktop-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="specialisations.html" class="nav-link">Specialisations</a>
+          <a href="salary-calculator.html" class="nav-link active">Salary Index</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- Right Header Actions (Clean Single CTA) -->
+        <div class="header-actions">
+          <a href="contact.html" class="btn-header-cta">
+            <span>Book a Call ↗</span>
+          </a>
+
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="page-content">
+  <!-- Dedicated Page Banner Hero -->
+  <div class="page-hero-banner">
+    <div class="section-watermark wm-node-lattice"></div>
+    <div class="container">
+      <div class="page-breadcrumb">
+        <a href="index.html">Home</a> <span>/</span> <span>Salary Index</span>
+      </div>
+      <h1 class="page-hero-title">Australian Tech Salary &amp; Day Rate Index 2026</h1>
+      <p class="page-hero-subtitle">Real-time enterprise contract rates and permanent salary intelligence across Sydney, Melbourne, Brisbane &amp; Canberra.</p>
+    </div>
+  </div>
+
+  <section class="section section-dark" id="salary-calculator">
+    <div class="section-watermark wm-mesh-wave"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag tag-cyan">MARKET INTELLIGENCE • 2026</span>
+        <h2 class="section-title">Australian Tech Salary &amp; Day Rate Index</h2>
+        <p class="section-subtitle">Real-time compensation benchmarks from active enterprise placements across Sydney, Melbourne, Brisbane &amp; Canberra.</p>
+      </div>
+
+      <div class="calculator-card-wrapper">
+        <!-- Live Market Telemetry Banner -->
+        <div class="calc-live-telemetry">
+          <span><span class="calc-beacon-dot"></span>AUSTRALIAN TECH INDEX v4.8 • REAL-TIME DAY RATE ENGINE</span>
+          <span style="color: #10b981; font-weight: 700;">LIVE ●</span>
+        </div>
+
+        <div class="calc-grid-layout">
+          <!-- Controls Pane -->
+          <div class="calc-control-pane">
+            <div class="calc-input-group">
+              <label for="calcDomain">Domain</label>
+              <select id="calcDomain" class="calc-select-styled">
+                <option value="cloud">Cloud &amp; Infrastructure</option>
+                <option value="data">BI, Data &amp; AI</option>
+                <option value="cyber">Cybersecurity</option>
+                <option value="digital">Digital &amp; Delivery</option>
+              </select>
+            </div>
+
+            <div class="calc-input-group">
+              <label for="calcRole">Role Specification</label>
+              <select id="calcRole" class="calc-select-styled"></select>
+            </div>
+
+            <div class="calc-input-group">
+              <label>Seniority Level</label>
+              <div class="seniority-pill-tabs" id="seniorityGroup">
+                <button class="calc-tab-btn" data-level="mid">Mid (3-5y)</button>
+                <button class="calc-tab-btn active" data-level="senior">Senior (6-10y)</button>
+                <button class="calc-tab-btn" data-level="lead">Lead / Architect (10+y)</button>
+              </div>
+            </div>
+
+            <div class="calc-input-group">
+              <label for="calcLocation">Location / Market</label>
+              <select id="calcLocation" class="calc-select-styled">
+                <option value="sydney">Sydney, NSW (HQ Market)</option>
+                <option value="melbourne">Melbourne, VIC</option>
+                <option value="brisbane">Brisbane, QLD</option>
+                <option value="canberra">Canberra, ACT (Gov/Clearances)</option>
+                <option value="remote">Remote Australia</option>
+              </select>
+            </div>
+
+            <div class="calc-input-group">
+              <label>Engagement Model</label>
+              <div class="engagement-pill-tabs" id="engagementGroup">
+                <button class="calc-tab-btn active" data-engage="contract">Contract (Daily Rate)</button>
+                <button class="calc-tab-btn" data-engage="permanent">Permanent (Annual Base)</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Display Output Card -->
+          <div class="calc-display-card">
+            <div>
+              <div class="calc-result-tag">
+                <span class="pulse-indicator" style="width: 6px; height: 6px;"></span>
+                <span>Calculated Market Benchmark</span>
+              </div>
+
+              <div class="calc-number-lead">
+                <span style="color: var(--gold-primary);">$</span><span id="rateValue">1,350</span>
+                <span class="period" id="ratePeriod">AUD / day</span>
+              </div>
+
+              <div class="calc-spread-sub">
+                Standard Spread: <strong id="rateSpread">$1,200 – $1,500 AUD</strong>
+              </div>
+            </div>
+
+            <!-- Market Velocity Meters -->
+            <div class="calc-meters-group">
+              <div class="meter-row">
+                <div class="meter-header">
+                  <span class="label">Hiring Velocity</span>
+                  <span class="val" id="meterSpeedText">Fast (48h - 72h)</span>
+                </div>
+                <div class="meter-bar-track">
+                  <div class="meter-bar-fill speed" id="meterSpeedBar" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <div class="meter-row">
+                <div class="meter-header">
+                  <span class="label">Talent Scarcity</span>
+                  <span class="val" id="meterScarcityText">High (Top 5% in AU)</span>
+                </div>
+                <div class="meter-bar-track">
+                  <div class="meter-bar-fill scarcity" id="meterScarcityBar" style="width: 82%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-insight-box" id="calcInsight">
+              💡 <strong>Market Insight:</strong> High competition in NSW financial sector. Lock contractors early on 6-12m terms.
+            </div>
+
+            <a href="#action-hub" class="btn-primary-hero" style="justify-content: center; width: 100%;">
+              <span>Source Candidates at This Rate ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-light" id="jobs-board">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ACTIVE MANDATES • AUSTRALIA</span>
+        <h2 class="section-title">Featured Tech Roles &amp; Contracts</h2>
+        <p class="section-subtitle">Exclusive and confidential mandates across Sydney, Melbourne, Brisbane &amp; Canberra.</p>
+      </div>
+
+      <div class="jobs-filter-bar">
+        <div class="filter-chips-row" id="jobFilterChips">
+          <button class="filter-chip-btn active" data-filter="all">All Domains</button>
+          <button class="filter-chip-btn" data-filter="cloud">Cloud &amp; DevOps</button>
+          <button class="filter-chip-btn" data-filter="data">Data &amp; AI</button>
+          <button class="filter-chip-btn" data-filter="cyber">Cybersecurity</button>
+          <button class="filter-chip-btn" data-filter="digital">Digital &amp; Delivery</button>
+        </div>
+      </div>
+
+      <div class="jobs-grid-layout" id="jobsGrid">
+        <!-- Job 1 -->
+        <div class="job-card-item" data-domain="data">
+          <div>
+            <span class="job-type-badge contract">Contract • 6 Months</span>
+            <h3 class="job-card-title">Lead Snowflake &amp; Databricks Data Engineer</h3>
+            <div class="job-location-sub">Tier-1 Wealth &amp; Banking • Sydney (Hybrid 2d/wk)</div>
+            <div class="job-rate-highlight">$1,250 – $1,450 AUD / day</div>
+            <p class="job-card-desc">Architecting real-time enterprise ingestion pipelines and lakehouse analytics using PySpark, dbt, and Snowflake for regulatory reporting.</p>
+          </div>
+          <div class="job-card-footer">
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Posted 2 days ago</span>
+            <button class="btn-quick-apply" data-role="Lead Snowflake Data Engineer">Quick Apply (30s) ↗</button>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="job-card-item" data-domain="cloud">
+          <div>
+            <span class="job-type-badge perm">Permanent • Full Time</span>
+            <h3 class="job-card-title">Principal AWS Cloud Solutions Architect</h3>
+            <div class="job-location-sub">ASX 50 Tech &amp; Logistics • Melbourne / Remote AU</div>
+            <div class="job-rate-highlight">$195,000 – $225,000 + Super</div>
+            <p class="job-card-desc">Lead the enterprise cloud strategy, containerized microservices migration, and multi-region resilience across Amazon Web Services.</p>
+          </div>
+          <div class="job-card-footer">
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Posted 3 days ago</span>
+            <button class="btn-quick-apply" data-role="Principal AWS Cloud Architect">Quick Apply (30s) ↗</button>
+          </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="job-card-item" data-domain="cyber">
+          <div>
+            <span class="job-type-badge contract">Contract • 12 Months</span>
+            <h3 class="job-card-title">Zero-Trust &amp; Cyber Security Architect</h3>
+            <div class="job-location-sub">Digital FinTech Platform • Sydney CBD (Hybrid)</div>
+            <div class="job-rate-highlight">$1,350 – $1,600 AUD / day</div>
+            <p class="job-card-desc">Delivering APRA CPS 234 and Essential 8 compliance frameworks, identity federation (Okta), and cloud perimeter zero-trust defenses.</p>
+          </div>
+          <div class="job-card-footer">
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Posted today • Urgent</span>
+            <button class="btn-quick-apply" data-role="Cyber Security Architect">Quick Apply (30s) ↗</button>
+          </div>
+        </div>
+
+        <!-- Job 4 -->
+        <div class="job-card-item" data-domain="digital">
+          <div>
+            <span class="job-type-badge contract">Federal Cleared • Contract</span>
+            <h3 class="job-card-title">Enterprise Agile Program Director (SAFe)</h3>
+            <div class="job-location-sub">Federal Government Agency • Canberra (Baseline/NV1)</div>
+            <div class="job-rate-highlight">$1,400 – $1,700 AUD / day</div>
+            <p class="job-card-desc">Directing a cross-agency digital service transformation with multi-million dollar budgetary governance across 8 Agile release trains.</p>
+          </div>
+          <div class="job-card-footer">
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Posted 4 days ago</span>
+            <button class="btn-quick-apply" data-role="Agile Program Director">Quick Apply (30s) ↗</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+<footer class="site-footer section-dark">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-col-brand">
+          <div class="brand-logo">
+            <img src="assets/prime-talent-logo.png" alt="Prime Talent Solutions" class="brand-logo-img">
+            <div class="brand-text">
+              <span class="brand-title">PRIME TALENT</span>
+              <span class="brand-subtitle">SOLUTIONS</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Australian high-conviction IT recruitment across Cloud, Data &amp; AI, and Cybersecurity. Led personally by Ashwin Shiv with 18+ years Fortune 500 authority.
+          </p>
+          <div class="footer-hq-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Level 49, 8 Parramatta Square, Sydney NSW</span>
+          </div>
+
+          <!-- Verified Official Social Channel -->
+          <div class="footer-social-wrap">
+            <span class="footer-social-label">Connect on LinkedIn</span>
+            <div class="footer-social-links">
+              <a href="https://www.linkedin.com/in/ashwinshiv/" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="LinkedIn Profile" title="Ashwin Shiv on LinkedIn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+                <span>Ashwin Shiv on LinkedIn ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Practice Areas -->
+        <div>
+          <h4 class="footer-heading">Practice Areas</h4>
+          <ul class="footer-nav-list">
+            <li><a href="specialisations.html">Cloud &amp; Infrastructure <span>↗</span></a></li>
+            <li><a href="specialisations.html">BI, Data &amp; AI Lakehouse <span>↗</span></a></li>
+            <li><a href="specialisations.html">Cybersecurity (APRA CPS 234) <span>↗</span></a></li>
+            <li><a href="specialisations.html">Digital &amp; Delivery Transformation <span>↗</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Navigation -->
+        <div>
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-nav-list">
+            <li><a href="specialisations.html">Specialisations</a></li>
+            <li><a href="salary-calculator.html">2026 Salary Index</a></li>
+            <li><a href="about.html">About Ashwin Shiv</a></li>
+            <li><a href="about.html#why-us">Why Prime Talent</a></li>
+            <li><a href="salary-calculator.html#jobs-board">Open Mandates (Live)</a></li>
+            <li><a href="contact.html">Contact &amp; Booking</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact -->
+        <div>
+          <h4 class="footer-heading">Direct Contact</h4>
+          <ul class="footer-nav-list footer-contact-list">
+            <li>
+              <span class="footer-contact-lbl">National HQ Mobile:</span>
+              <a href="tel:+610450173053" class="footer-phone-highlight">+61 0450 173 053</a>
+            </li>
+            <li>
+              <span class="footer-contact-lbl">Executive Desk:</span>
+              <a href="mailto:info@primetalent.com.au">info@primetalent.com.au</a>
+            </li>
+            <li>
+              <span class="footer-contact-lbl">Managing Director:</span>
+              <a href="https://www.linkedin.com/in/ashwinshiv/" target="_blank" rel="noopener" class="footer-linkedin-link">
+                Ashwin Shiv (LinkedIn Profile ↗)
+              </a>
+            </li>
+            <li class="footer-badge-guarantee">
+              <span class="dot-live"></span> 48h Shortlist &amp; 96% Retention Guarantee
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Indigenous Acknowledgement -->
+      <div class="indigenous-acknowledgement">
+        <strong>Acknowledgement of Country</strong>
+        Prime Talent Solutions Pty Ltd acknowledges the Traditional Owners of Country throughout Australia. We pay our deep respect to Aboriginal and Torres Strait Islander cultures, elders past, present, and emerging, and celebrate their continuing connection to land, sea, and community.
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div class="footer-legal-copy">
+          <span>&copy; 2026 Prime Talent Solutions Pty Ltd. All rights reserved.</span>
+          <span class="footer-legal-sep">•</span>
+          <span style="color: var(--gold-text); font-weight: 700;">Sydney National Headquarters</span>
+          <span class="footer-legal-sep">•</span>
+          <span>Level 49, 8 Parramatta Square</span>
+        </div>
+
+        <!-- Powered by JobGen.ai in Right Corner -->
+        <div class="powered-by-jobgen-container">
+          <span class="powered-text-label">powered by</span>
+          <a href="https://jobgen.ai" target="_blank" rel="noopener noreferrer" class="jobgen-badge-anchor" title="Visit JobGen.ai">
+            <img src="assets/jobgen-logo.png" alt="JobGen.ai Official Logo" class="jobgen-logo-img">
+            <span class="jobgen-brand-title">jobgen<span class="dot-ai">.ai</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- Floating Copilot AI Assistant (PrimeBot by JobGen.ai) -->
+  <div class="copilot-floating-anchor">
+    <!-- Pop up above the logo -->
+    <div class="copilot-popup-bubble" id="copilotPopupBubble" role="tooltip" aria-label="PrimeBot AI, Powered by JobGen.ai">
+      <div class="copilot-popup-content">
+        <span class="copilot-popup-title">PrimeBot</span>
+        <span class="copilot-popup-subline">Powered by JobGen.ai</span>
+      </div>
+      <div class="copilot-popup-arrow"></div>
+    </div>
+
+    <!-- Circular floating logo button -->
+    <button class="copilot-trigger-btn" id="copilotTriggerBtn" aria-label="Open PrimeBot AI">
+      <div class="copilot-avatar-wrap">
+        <img src="assets/prime-talent-logo.png" alt="Prime Talent Logo" class="copilot-avatar-img">
+        <span class="copilot-status-pip"></span>
+      </div>
+      <span class="copilot-radar-ping"></span>
+    </button>
+
+    <div class="copilot-chat-window" id="copilotChatWindow">
+      <div class="chat-head-bar">
+        <div class="chat-head-left">
+          <img src="assets/prime-talent-logo.png" alt="Prime Talent Logo" class="chat-head-logo">
+          <div class="chat-head-info">
+            <span class="chat-head-title">PrimeBot Copilot</span>
+            <span class="chat-head-powered">Powered by JobGen.ai</span>
+          </div>
+        </div>
+        <button class="chat-close-btn" id="copilotCloseBtn">&times;</button>
+      </div>
+
+      <div class="chat-log-area" id="copilotLogArea">
+        <div class="chat-bubble bot">
+          G'day! I'm Prime Talent's AI Copilot powered by JobGen.ai with Ashwin Shiv's 18+ years of Australian tech recruitment authority. How can I assist you today?
+        </div>
+        <div class="chat-quick-chips">
+          <button class="chat-chip" data-q="What is the day rate for Cloud Architects in Sydney?">💵 Cloud Day Rates</button>
+          <button class="chat-chip" data-q="I need to hire a contract Snowflake data engineer.">⚡ Hire Data Engineer</button>
+          <button class="chat-chip" data-q="Tell me about Ashwin Shiv's experience.">👑 About Ashwin Shiv</button>
+          <button class="chat-chip" data-q="How do I book a strategy call?">📅 Book Strategy Call</button>
+        </div>
+      </div>
+
+      <form id="copilotInputForm" class="chat-input-bar">
+        <input type="text" id="copilotTextInput" class="chat-text-input" placeholder="Ask a question or request talent..." autocomplete="off">
+        <button type="submit" class="chat-send-icon-btn" aria-label="Send">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Portal Login Modal -->
+  <div class="modal-backdrop-layer" id="portalModal">
+    <div class="modal-window-card">
+      <button class="modal-close-trigger" id="portalCloseBtn">&times;</button>
+      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; color: var(--text-white); margin-bottom: 6px;">Prime Portal Login</h3>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">Access your dedicated candidate, contractor or client workspace</p>
+
+      <form id="portalLoginForm">
+        <div class="input-field-wrap" style="margin-bottom: 14px;">
+          <label for="portalEmail">Work Email Address</label>
+          <input type="email" id="portalEmail" class="form-input-styled" placeholder="name@domain.com.au" required>
+        </div>
+        <div class="input-field-wrap" style="margin-bottom: 18px;">
+          <label for="portalPassword">Access Code / Password</label>
+          <input type="password" id="portalPassword" class="form-input-styled" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-primary-hero" style="width: 100%; justify-content: center;">
+          <span>Sign In to Portal ↗</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Bubble -->
+  <div class="toast-bubble" id="toastBubble">Notification</div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" fill="none">
+  <!-- ICONIC SOVEREIGN CYBER SHIELD & GYRO ORBIT (CLEAN, MINIMAL) -->
+  <g id="cyber-sovereign-shield" transform="translate(1080, 140)">
+    <!-- Outer Shield Silhouette -->
+    <path d="M 140 20 L 250 65 L 250 180 C 250 260 195 325 140 355 C 85 325 30 260 30 180 L 30 65 Z" 
+          stroke="#0f766e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.58"/>
+    
+    <!-- Inner Concentric Boundary -->
+    <path d="M 140 50 L 225 85 L 225 175 C 225 240 180 295 140 320 C 100 295 55 240 55 175 L 55 85 Z" 
+          stroke="#0f172a" stroke-width="1.8" stroke-dasharray="6 4" stroke-opacity="0.45"/>
+
+    <!-- Central Cryptographic Core -->
+    <circle cx="140" cy="180" r="26" stroke="#b45309" stroke-width="2.4" stroke-opacity="0.58"/>
+    <circle cx="140" cy="180" r="12" fill="#b45309" fill-opacity="0.85"/>
+    <circle cx="140" cy="174" r="5" fill="#ffffff" fill-opacity="0.95"/>
+    <rect x="136" y="176" width="8" height="12" rx="2" fill="#ffffff" fill-opacity="0.95"/>
+
+    <!-- Tilted Elliptical Gyro Ring (Rotating Orbit) -->
+    <ellipse cx="140" cy="180" rx="170" ry="75" transform="rotate(-25 140 180)" 
+             stroke="#0284c7" stroke-width="2" stroke-dasharray="8 6" stroke-opacity="0.5"/>
+    <circle cx="290" cy="120" r="6" fill="#0284c7" fill-opacity="0.85"/>
+
+    <ellipse cx="140" cy="180" rx="170" ry="75" transform="rotate(35 140 180)" 
+             stroke="#0f172a" stroke-width="1.6" stroke-opacity="0.35"/>
+    <circle cx="30" cy="240" r="5" fill="#b45309" fill-opacity="0.85"/>
+  </g>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" fill="none">
+  <!-- ICONIC SOUTHERN CROSS CONSTELLATION & SOVEREIGN RADAR ARC (CLEAN, PROUD) -->
+  <g id="aus-sovereign-constellation" transform="translate(1040, 120)">
+    <!-- Radar Telemetry Arcs -->
+    <circle cx="180" cy="180" r="160" stroke="#60a5fa" stroke-width="1.8" stroke-opacity="0.35" stroke-dasharray="6 6"/>
+    <circle cx="180" cy="180" r="220" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.25"/>
+    <circle cx="180" cy="180" r="80" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.45"/>
+
+    <!-- Southern Cross Stars & Sovereign Geometric Lines -->
+    <!-- Alpha Crucis (Bottom) -->
+    <circle cx="180" cy="300" r="11" fill="#f59e0b" fill-opacity="0.85"/>
+    <circle cx="180" cy="300" r="22" stroke="#f59e0b" stroke-width="1.8" stroke-opacity="0.5"/>
+
+    <!-- Gamma Crucis (Top) -->
+    <circle cx="180" cy="60" r="10" fill="#00f0ff" fill-opacity="0.85"/>
+
+    <!-- Beta Crucis (Left) -->
+    <circle cx="80" cy="170" r="10" fill="#38bdf8" fill-opacity="0.85"/>
+
+    <!-- Delta Crucis (Right) -->
+    <circle cx="270" cy="150" r="9" fill="#00f0ff" fill-opacity="0.85"/>
+
+    <!-- Epsilon Crucis (Small Star) -->
+    <circle cx="215" cy="210" r="6" fill="#f59e0b" fill-opacity="0.85"/>
+
+    <!-- Constellation Cross Beam Lines -->
+    <line x1="180" y1="60" x2="180" y2="300" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.48"/>
+    <line x1="80" y1="170" x2="270" y2="150" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.48"/>
+    <line x1="180" y1="180" x2="215" y2="210" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="4 4" stroke-opacity="0.6"/>
+
+    <!-- The Two Pointers (Alpha & Beta Centauri) -->
+    <circle cx="20" cy="340" r="9" fill="#00f0ff" fill-opacity="0.85"/>
+    <circle cx="30" cy="270" r="9" fill="#f59e0b" fill-opacity="0.85"/>
+    <line x1="20" y1="340" x2="30" y2="270" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.45"/>
+  </g>
+</svg>

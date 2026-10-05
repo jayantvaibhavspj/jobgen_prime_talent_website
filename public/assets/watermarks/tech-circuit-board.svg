@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" fill="none">
+  <!-- ICONIC QUANTUM ARCHITECTURE MATRIX (CLEAN, MINIMAL) -->
+  <g id="quantum-cube" transform="translate(1080, 160)">
+    <!-- Isometric Cube Front Face -->
+    <polygon points="160,60 260,110 160,160 60,110" 
+             fill="#00f0ff" fill-opacity="0.08" 
+             stroke="#00f0ff" stroke-width="2.2" stroke-opacity="0.48"/>
+    
+    <!-- Left Face -->
+    <polygon points="60,110 160,160 160,260 60,210" 
+             fill="#38bdf8" fill-opacity="0.06" 
+             stroke="#38bdf8" stroke-width="2.2" stroke-opacity="0.48"/>
+
+    <!-- Right Face -->
+    <polygon points="160,160 260,110 260,210 160,260" 
+             fill="#f59e0b" fill-opacity="0.06" 
+             stroke="#f59e0b" stroke-width="2.2" stroke-opacity="0.48"/>
+
+    <!-- Central Glowing Quantum Node -->
+    <circle cx="160" cy="160" r="14" fill="#f59e0b" fill-opacity="0.85"/>
+    <circle cx="160" cy="160" r="28" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="4 4" stroke-opacity="0.6"/>
+
+    <!-- Orthogonal Bus Traces -->
+    <line x1="160" y1="60" x2="160" y2="0" stroke="#00f0ff" stroke-width="2" stroke-opacity="0.5"/>
+    <circle cx="160" cy="0" r="5" fill="#00f0ff" fill-opacity="0.8"/>
+
+    <line x1="260" y1="110" x2="320" y2="110" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.5"/>
+    <circle cx="320" cy="110" r="5" fill="#f59e0b" fill-opacity="0.8"/>
+
+    <line x1="60" y1="210" x2="0" y2="210" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.5"/>
+    <circle cx="0" cy="210" r="5" fill="#38bdf8" fill-opacity="0.8"/>
+  </g>
+</svg>

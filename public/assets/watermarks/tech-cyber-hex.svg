@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" fill="none">
+  <defs>
+    <pattern id="hexPattern_dark" width="120" height="207.84" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 120 34.64 L 120 103.92 L 60 138.56 L 0 103.92 L 0 34.64 Z" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.12" fill="none"/>
+      <path d="M 60 207.84 L 120 242.48 L 120 311.76 L 60 346.4 L 0 311.76 L 0 242.48 Z" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.12" fill="none"/>
+      <path d="M 0 103.92 L 60 138.56 L 60 207.84 L 0 242.48 L -60 207.84 L -60 138.56 Z" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.12" fill="none"/>
+      <path d="M 120 103.92 L 180 138.56 L 180 207.84 L 120 242.48 L 60 207.84 L 60 138.56 Z" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.12" fill="none"/>
+      <!-- Core nodes -->
+      <circle cx="60" cy="0" r="2" fill="#38bdf8" fill-opacity="0.3"/>
+      <circle cx="120" cy="34.64" r="2" fill="#38bdf8" fill-opacity="0.3"/>
+      <circle cx="60" cy="138.56" r="2" fill="#38bdf8" fill-opacity="0.3"/>
+    </pattern>
+    <radialGradient id="hexGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#0284c7" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#060911" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1440" height="900" fill="url(#hexGlow)"/>
+  <rect width="1440" height="900" fill="url(#hexPattern_dark)"/>
+
+  <!-- Futuristic Shield & Cryptographic Block in Center-Right (NO TEXT) -->
+  <g transform="translate(1080, 420)" stroke="#f59e0b" stroke-opacity="0.45" stroke-width="1.8" fill="none">
+    <polygon points="0,-80 70,-40 70,50 0,90 -70,50 -70,-40"/>
+    <polygon points="0,-60 52,-30 52,38 0,68 -52,38 -52,-30" stroke="#38bdf8" stroke-opacity="0.4"/>
+    <circle cx="0" cy="0" r="8" fill="#f59e0b" fill-opacity="0.6">
+      <animate attributeName="fill-opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Lock symbol lines -->
+    <path d="M -14 0 L 14 0 M 0 -14 L 0 14" stroke="#ffffff" stroke-opacity="0.6"/>
+  </g>
+</svg>
