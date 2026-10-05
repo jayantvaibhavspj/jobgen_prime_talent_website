@@ -1,27 +1,27 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { queryChatBrain, initialSuggestions } from '../data/chatBrain';
 
-const botResponses = [
-  {
-    keywords: ['day rate', 'rate', 'salary', 'cost', 'cloud', 'remuneration', 'pay'],
-    answer: "In the 2026 Australian tech market, Senior Cloud & DevOps Architects command between $1,200 – $1,550 AUD/day ($185k - $240k base). Check our live Salary Index page for precise role breakdowns across Sydney, Melbourne, Brisbane & Canberra."
-  },
-  {
-    keywords: ['data', 'snowflake', 'databricks', 'engineer', 'ai', 'machine learning', 'genai'],
-    answer: "We have active, pre-vetted Snowflake and Databricks data engineers and GenAI specialists available for 48-hour placement. Would you like to review candidate profiles or schedule a consultation with Ashwin Shiv?"
-  },
-  {
-    keywords: ['ashwin', 'founder', 'director', 'background', 'who is', 'experience'],
-    answer: "Ashwin Shiv is the Founder & Director of Prime Talent Solutions. He brings 18+ years of specialized technical talent acquisition experience across ASX-listed enterprises, Tier-1 ANZ banks, and federal agencies."
-  },
-  {
-    keywords: ['book', 'call', 'meeting', 'strategy', 'contact', 'schedule'],
-    answer: "You can book a 15-minute confidential strategy session directly on Ashwin's calendar via our Contact page, or call our Sydney HQ directly at +61 0450 173 053."
-  },
-  {
-    keywords: ['security', 'cyber', 'soc', 'zero trust', 'apra', 'cps 234'],
-    answer: "All our Cybersecurity placements are strictly vetted against APRA CPS 234 standards and Australian PSPF guidelines. We supply NV1-eligible engineers, DevSecOps specialists, and CISO advisory talent."
-  }
-];
+// Helper to render bold markdown and linebreaks cleanly
+function renderFormattedMessage(text) {
+  if (!text) return null;
+  const lines = text.split('\n');
+  return lines.map((line, idx) => {
+    const parts = line.split(/(\*\*.*?\*\*)/g);
+    const content = parts.map((part, pIdx) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={pIdx} style={{ color: '#ffffff', fontWeight: 700 }}>{part.slice(2, -2)}</strong>;
+      }
+      return part;
+    });
+
+    return (
+      <span key={idx} style={{ display: 'block', minHeight: line ? 'auto' : '6px' }}>
+        {content}
+      </span>
+    );
+  });
+}
 
 export default function PrimeBot({ externalOpenSignal }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,17 +29,23 @@ export default function PrimeBot({ externalOpenSignal }) {
     {
       id: 1,
       sender: 'bot',
-      text: "G'day! I'm PrimeBot, powered by JobGen.ai with Ashwin Shiv's 18+ years of Australian enterprise recruitment authority. How can I assist with your tech talent requirements today?"
+      text: "G'day! I'm **PrimeBot**, powered by **JobGen.ai** with **Ashwin Shiv's** 18+ years of Australian enterprise IT recruitment authority.\n\nAsk me about **2026 tech day rates**, hiring **Cloud, Data & AI, or Cybersecurity** contractors, or booking a strategy consultation.",
+      actions: [
+        { label: "2026 Salary Index ↗", to: "/salary-calculator" },
+        { label: "48h Hiring Mandate ↗", to: "/contact" }
+      ],
+      suggestions: initialSuggestions
     }
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [activeSuggestions, setActiveSuggestions] = useState(initialSuggestions);
 
   const windowRef = useRef(null);
   const logRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Clear legacy buggy localStorage coordinates so window always docks cleanly
+  // Clear legacy buggy localStorage coordinates
   useEffect(() => {
     try {
       localStorage.removeItem('primebot_anchor_pos');
@@ -47,7 +53,7 @@ export default function PrimeBot({ externalOpenSignal }) {
     } catch (e) {}
   }, []);
 
-  // Handle external open trigger (e.g. from header or CTA buttons)
+  // Handle external open trigger
   useEffect(() => {
     if (externalOpenSignal) {
       setIsOpen(true);
@@ -102,15 +108,23 @@ export default function PrimeBot({ externalOpenSignal }) {
     setIsTyping(true);
 
     setTimeout(() => {
-      const lower = query.toLowerCase();
-      const matched = botResponses.find(r => r.keywords.some(k => lower.includes(k)));
-      const replyText = matched 
-        ? matched.answer 
-        : "Prime Talent Solutions delivers specialized Cloud, Data & AI, and Cybersecurity talent across Sydney, Melbourne, Brisbane & Canberra with guaranteed 48-hour shortlists. Would you like to submit a hiring mandate or speak directly with Ashwin Shiv?";
+      const response = queryChatBrain(query, messages);
       
-      setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'bot', text: replyText }]);
+      const botMsg = {
+        id: Date.now() + 1,
+        sender: 'bot',
+        text: response.text,
+        actions: response.actions,
+        suggestions: response.suggestions
+      };
+
+      setMessages(prev => [...prev, botMsg]);
       setIsTyping(false);
-    }, 450);
+
+      if (response.suggestions && response.suggestions.length > 0) {
+        setActiveSuggestions(response.suggestions);
+      }
+    }, 380);
   };
 
   return (
@@ -120,7 +134,7 @@ export default function PrimeBot({ externalOpenSignal }) {
         className={`copilot-floating-anchor ${isOpen ? 'chat-open' : ''}`}
         id="copilotAnchor"
       >
-        {/* Speech bubble teaser (hidden when chat is open) */}
+        {/* Speech bubble teaser */}
         {!isOpen && (
           <div 
             className="copilot-popup-bubble" 
@@ -177,7 +191,7 @@ export default function PrimeBot({ externalOpenSignal }) {
             <img src="/assets/prime-talent-logo.png" alt="Prime Talent Logo" className="chat-head-logo" />
             <div className="chat-head-info">
               <span className="chat-head-title">PrimeBot AI Assistant</span>
-              <span className="chat-head-powered">Powered by JobGen.ai</span>
+              <span className="chat-head-powered">Powered by JobGen.ai • 18+ Yrs Authority</span>
             </div>
           </div>
           <button 
@@ -195,7 +209,43 @@ export default function PrimeBot({ externalOpenSignal }) {
         <div className="chat-log-area" ref={logRef} id="copilotLogArea">
           {messages.map(m => (
             <div key={m.id} className={`chat-bubble ${m.sender}`}>
-              {m.text}
+              <div className="chat-bubble-content">
+                {renderFormattedMessage(m.text)}
+              </div>
+
+              {/* Interactive Direct Action Buttons */}
+              {m.actions && m.actions.length > 0 && (
+                <div className="chat-msg-actions">
+                  {m.actions.map((act, aIdx) => {
+                    if (act.to) {
+                      return (
+                        <Link 
+                          key={aIdx} 
+                          to={act.to} 
+                          className="chat-action-btn" 
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {act.label}
+                        </Link>
+                      );
+                    }
+                    if (act.href) {
+                      return (
+                        <a 
+                          key={aIdx} 
+                          href={act.href} 
+                          target={act.isExternal ? "_blank" : undefined} 
+                          rel={act.isExternal ? "noopener noreferrer" : undefined} 
+                          className="chat-action-btn"
+                        >
+                          {act.label}
+                        </a>
+                      );
+                    }
+                    return null;
+                  })}
+                </div>
+              )}
             </div>
           ))}
 
@@ -205,20 +255,18 @@ export default function PrimeBot({ externalOpenSignal }) {
             </div>
           )}
 
-          {/* Quick Suggestion Chips */}
+          {/* Dynamic Follow-up Prompt Chips */}
           <div className="chat-quick-chips">
-            <button type="button" className="chat-chip" onClick={() => handleSend("What is the day rate for Cloud Architects in Sydney?")}>
-              Cloud Day Rates
-            </button>
-            <button type="button" className="chat-chip" onClick={() => handleSend("I need to hire a contract Snowflake data engineer.")}>
-              Hire Data Engineer
-            </button>
-            <button type="button" className="chat-chip" onClick={() => handleSend("Tell me about Ashwin Shiv's experience.")}>
-              About Ashwin Shiv
-            </button>
-            <button type="button" className="chat-chip" onClick={() => handleSend("How do I book a strategy call?")}>
-              Book Strategy Call
-            </button>
+            {activeSuggestions.slice(0, 4).map((sugg, idx) => (
+              <button 
+                key={idx} 
+                type="button" 
+                className="chat-chip" 
+                onClick={() => handleSend(sugg)}
+              >
+                {sugg}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -231,7 +279,7 @@ export default function PrimeBot({ externalOpenSignal }) {
             ref={inputRef}
             type="text" 
             className="chat-text-input" 
-            placeholder="Ask a question or request talent..." 
+            placeholder="Ask about rates, hiring, or Ashwin Shiv..." 
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             autoComplete="off" 
