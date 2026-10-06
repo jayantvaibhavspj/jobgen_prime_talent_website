@@ -49,13 +49,13 @@ export default function SalaryCalculator() {
           <div className="calc-container-card">
             <div className="calc-header-strip">
               <div>
-                <span className="calc-live-indicator">
+                  <span className="calc-live-indicator">
                   <span className="live-dot-ping"></span>
-                  <span>LIVE BENCHMARK: Q1 2026</span>
+                    <span>2026 MARKET ESTIMATE</span>
                 </span>
-                <h2 className="calc-title">Interactive Tech Compensation Calculator</h2>
+                <h2 className="calc-title">Tech Salary Calculator</h2>
               </div>
-              <div className="calc-updated-tag">Updated: Sydney, March 2026</div>
+              <div className="calc-updated-tag">Sydney · March 2026</div>
             </div>
 
             <div className="calc-grid-layout">
@@ -141,7 +141,7 @@ export default function SalaryCalculator() {
               {/* Display Result Column */}
               <div className="calc-display-col">
                 <div className="calc-result-box">
-                  <div className="calc-result-kicker">EXPECTED MARKET BENCHMARK (AUD)</div>
+                  <div className="calc-result-kicker">ESTIMATED RATE (AUD)</div>
                   <div className="calc-big-number">
                     <span className="currency-sym">$</span>
                     <span id="rateValue" className="rate-value-num">{finalVal.toLocaleString()}</span>
@@ -151,7 +151,7 @@ export default function SalaryCalculator() {
                   </div>
 
                   <div className="calc-spread-bar">
-                    <span className="spread-label">Typical Enterprise Range:</span>
+                    <span className="spread-label">Market range</span>
                     <strong id="rateSpread" className="spread-val">
                       ${lowSpread.toLocaleString()} – ${highSpread.toLocaleString()} AUD{engagement === 'perm' ? ' + Super' : ''}
                     </strong>
@@ -163,7 +163,7 @@ export default function SalaryCalculator() {
 
                   <div className="calc-cta-row">
                     <Link to="/contact" className="btn-primary-hero" style={{ width: '100%', justifyContent: 'center' }}>
-                      <span>Lock In Talent at this Benchmark ↗</span>
+                      <span>Discuss this benchmark ↗</span>
                     </Link>
                   </div>
                 </div>

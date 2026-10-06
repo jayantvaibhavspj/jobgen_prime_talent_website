@@ -5,9 +5,13 @@ import { queryChatBrain, initialSuggestions } from '../data/chatBrain';
 // Helper to render bold markdown and linebreaks cleanly
 function renderFormattedMessage(text) {
   if (!text) return null;
-  const lines = text.split('\n');
+  const lines = text.split('\n').map((line) => line.trim());
   return lines.map((line, idx) => {
-    const parts = line.split(/(\*\*.*?\*\*)/g);
+    if (!line) return <span key={idx} className="chat-message-spacer" aria-hidden="true" />;
+
+    const isListItem = /^(?:[•-]|\d+\.)\s/.test(line);
+    const cleanLine = line.replace(/^(?:[•-]|\d+\.)\s*/, '');
+    const parts = cleanLine.split(/(\*\*.*?\*\*)/g);
     const content = parts.map((part, pIdx) => {
       if (part.startsWith('**') && part.endsWith('**')) {
         return <strong key={pIdx} style={{ color: '#ffffff', fontWeight: 700 }}>{part.slice(2, -2)}</strong>;
@@ -16,7 +20,7 @@ function renderFormattedMessage(text) {
     });
 
     return (
-      <span key={idx} style={{ display: 'block', minHeight: line ? 'auto' : '6px' }}>
+      <span key={idx} className={`chat-message-line${isListItem ? ' chat-message-list-item' : ''}`}>
         {content}
       </span>
     );
@@ -29,7 +33,7 @@ export default function PrimeBot({ externalOpenSignal }) {
     {
       id: 1,
       sender: 'bot',
-      text: "G'day! I'm **PrimeBot**, powered by **JobGen.ai** with **Ashwin Shiv's** 18+ years of Australian enterprise IT recruitment authority.\n\nAsk me about **2026 tech day rates**, hiring **Cloud, Data & AI, or Cybersecurity** contractors, or booking a strategy consultation.",
+      text: "G'day! I'm **PrimeBot**, powered by JobGen.ai. I can help with:\n• Tech salary benchmarks\n• Cloud, Data & AI, and Cyber hiring\n• Booking a call with Ashwin Shiv",
       actions: [
         { label: "2026 Salary Index ↗", to: "/salary-calculator" },
         { label: "Submit Hiring Mandate ↗", to: "/contact" }
@@ -42,16 +46,114 @@ export default function PrimeBot({ externalOpenSignal }) {
   const [activeSuggestions, setActiveSuggestions] = useState(initialSuggestions);
 
   const windowRef = useRef(null);
+  const anchorRef = useRef(null);
   const logRef = useRef(null);
   const inputRef = useRef(null);
+  const dragRef = useRef(null);
+  const suppressClickRef = useRef(false);
 
-  // Clear legacy buggy localStorage coordinates
+  // Restore saved bot positions.
   useEffect(() => {
     try {
-      localStorage.removeItem('primebot_anchor_pos');
-      localStorage.removeItem('primebot_window_pos');
+      [
+        [anchorRef.current, 'primebot-anchor-position-v2'],
+        [windowRef.current, 'primebot-window-position-v2']
+      ].forEach(([element, key]) => {
+        const saved = JSON.parse(localStorage.getItem(key) || 'null');
+        if (!element || !saved || !Number.isFinite(saved.left) || !Number.isFinite(saved.top)) return;
+
+        const maxLeft = Math.max(8, window.innerWidth - element.offsetWidth - 8);
+        const maxTop = Math.max(8, window.innerHeight - element.offsetHeight - 8);
+        element.style.left = `${Math.min(Math.max(saved.left, 8), maxLeft)}px`;
+        element.style.top = `${Math.min(Math.max(saved.top, 8), maxTop)}px`;
+        element.style.right = 'auto';
+        element.style.bottom = 'auto';
+      });
     } catch (e) {}
   }, []);
+
+  useEffect(() => {
+    const handlePointerMove = (event) => {
+      const drag = dragRef.current;
+      if (!drag) return;
+
+      const deltaX = event.clientX - drag.startX;
+      const deltaY = event.clientY - drag.startY;
+      if (!drag.moved && Math.hypot(deltaX, deltaY) < 5) return;
+
+      drag.moved = true;
+      suppressClickRef.current = true;
+      const maxLeft = Math.max(8, window.innerWidth - drag.element.offsetWidth - 8);
+      const maxTop = Math.max(8, window.innerHeight - drag.element.offsetHeight - 8);
+      drag.element.style.left = `${Math.min(Math.max(drag.left + deltaX, 8), maxLeft)}px`;
+      drag.element.style.top = `${Math.min(Math.max(drag.top + deltaY, 8), maxTop)}px`;
+      drag.element.style.right = 'auto';
+      drag.element.style.bottom = 'auto';
+      event.preventDefault();
+    };
+
+    const handlePointerUp = () => {
+      const drag = dragRef.current;
+      if (!drag) return;
+
+      if (drag.moved) {
+        const rect = drag.element.getBoundingClientRect();
+        try {
+          localStorage.setItem(drag.storageKey, JSON.stringify({ left: rect.left, top: rect.top }));
+        } catch (e) {}
+      }
+      dragRef.current = null;
+      document.body.style.userSelect = '';
+    };
+
+    window.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('pointerup', handlePointerUp);
+    window.addEventListener('pointercancel', handlePointerUp);
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('pointerup', handlePointerUp);
+      window.removeEventListener('pointercancel', handlePointerUp);
+      document.body.style.userSelect = '';
+    };
+  }, []);
+
+  const startDrag = (event, elementRef, storageKey) => {
+    if (event.button !== 0 || event.target.closest('a, input')) return;
+    if (storageKey === 'primebot-window-position-v2' && event.target.closest('button')) return;
+    const element = elementRef.current;
+    if (!element) return;
+
+    const rect = element.getBoundingClientRect();
+    dragRef.current = {
+      element,
+      storageKey,
+      startX: event.clientX,
+      startY: event.clientY,
+      left: rect.left,
+      top: rect.top,
+      moved: false
+    };
+  };
+
+  const positionChatNearTrigger = () => {
+    const anchor = anchorRef.current;
+    const chatWindow = windowRef.current;
+    if (!anchor || !chatWindow) return;
+
+    const anchorRect = anchor.getBoundingClientRect();
+    const chatWidth = chatWindow.offsetWidth;
+    const chatHeight = chatWindow.offsetHeight;
+    const maxLeft = Math.max(8, window.innerWidth - chatWidth - 8);
+    const maxTop = Math.max(8, window.innerHeight - chatHeight - 8);
+    const left = Math.min(Math.max(anchorRect.right - chatWidth, 8), maxLeft);
+    let top = anchorRect.top - chatHeight - 12;
+    if (top < 8) top = anchorRect.bottom + 12;
+
+    chatWindow.style.left = `${left}px`;
+    chatWindow.style.top = `${Math.min(Math.max(top, 8), maxTop)}px`;
+    chatWindow.style.right = 'auto';
+    chatWindow.style.bottom = 'auto';
+  };
 
   // Handle external open trigger
   useEffect(() => {
@@ -95,7 +197,20 @@ export default function PrimeBot({ externalOpenSignal }) {
       e.preventDefault();
       e.stopPropagation();
     }
-    setIsOpen(prev => !prev);
+    if (suppressClickRef.current) {
+      suppressClickRef.current = false;
+      return;
+    }
+    if (!isOpen) {
+      try {
+        if (!localStorage.getItem('primebot-window-position-v2')) {
+          requestAnimationFrame(positionChatNearTrigger);
+        }
+      } catch (error) {
+        requestAnimationFrame(positionChatNearTrigger);
+      }
+    }
+    setIsOpen(!isOpen);
   };
 
   const handleSend = (textToSend) => {
@@ -131,8 +246,10 @@ export default function PrimeBot({ externalOpenSignal }) {
     <>
       {/* Floating Trigger Button */}
       <div 
+        ref={anchorRef}
         className={`copilot-floating-anchor ${isOpen ? 'chat-open' : ''}`}
         id="copilotAnchor"
+        onPointerDown={(event) => startDrag(event, anchorRef, 'primebot-anchor-position-v2')}
       >
         {/* Speech bubble teaser */}
         {!isOpen && (
@@ -186,12 +303,15 @@ export default function PrimeBot({ externalOpenSignal }) {
         aria-label="PrimeBot Digital Talent Assistant"
       >
         {/* Header Bar */}
-        <div className="chat-head-bar">
+        <div
+          className="chat-head-bar"
+          onPointerDown={(event) => startDrag(event, windowRef, 'primebot-window-position-v2')}
+        >
           <div className="chat-head-left">
             <img src="/assets/prime-talent-logo.png" alt="Prime Talent Logo" className="chat-head-logo" />
             <div className="chat-head-info">
               <span className="chat-head-title">PrimeBot AI Assistant</span>
-              <span className="chat-head-powered">Powered by JobGen.ai • 18+ Yrs Authority</span>
+              <span className="chat-head-powered">Powered by JobGen.ai</span>
             </div>
           </div>
           <button 

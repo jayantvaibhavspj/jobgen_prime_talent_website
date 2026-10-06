@@ -4,11 +4,10 @@
 // =============================================================================
 
 export const initialSuggestions = [
-  "2026 Tech Salary Index",
-  "Hire Cloud / DevOps Talent",
-  "About Ashwin Shiv (18+ Yrs)",
-  "How does your shortlist process work?",
-  "Book Strategy Consultation"
+  "Salary rates",
+  "Hire tech talent",
+  "Find a tech role",
+  "Book a call"
 ];
 
 // Rich Multi-Domain Knowledge Base
@@ -24,18 +23,18 @@ export const knowledgeBase = [
       { label: "Book Strategy Call ↗", to: "/contact" }
     ],
     suggestions: [
-      "What is the day rate for Cloud Architects?",
-      "How fast can you deliver candidates?",
-      "Who is Ashwin Shiv?",
-      "I want to submit my resume"
+      "Cloud rates",
+      "Find a tech role",
+      "Who is Ashwin?",
+      "Book a call"
     ]
   },
 
   // --- 2. SALARY & DAY RATES (GENERAL) ---
   {
     category: "salary_general",
-    keywords: ["salary", "day rate", "rate", "rates", "package", "remuneration", "pay", "cost", "contract rate", "kitna milta", "kitni salary", "paisa"],
-    answer: "Australian tech day rates remain resilient in 2026, driven by critical modernization, AI adoption, and APRA compliance mandates:\n\n• **Cloud Solutions Architects**: $1,200 – $1,550/day ($185k – $240k perm)\n• **Lead DevOps / Platform Engineers**: $1,100 – $1,400/day ($170k – $210k perm)\n• **Snowflake / Databricks Data Engineers**: $1,200 – $1,500/day ($175k – $215k perm)\n• **Cybersecurity & Zero-Trust Architects**: $1,300 – $1,650/day ($195k – $245k perm)\n• **GenAI & MLOps Specialists**: $1,300 – $1,650/day ($195k – $240k perm)\n\nSydney and Canberra command a 5–10% premium for specialized security clearances.",
+    keywords: ["salary", "salaries", "day rate", "rate", "rates", "package", "remuneration", "pay", "cost", "contract rate", "kitna milta", "kitni salary", "paisa"],
+    answer: "**2026 Australian tech benchmarks**\n• **Cloud Architect:** $1,200–$1,550/day\n• **DevOps / Platform:** $1,100–$1,400/day\n• **Data Engineer:** $1,200–$1,500/day\n• **Cybersecurity:** $1,300–$1,650/day\n• **GenAI / MLOps:** $1,300–$1,650/day\nPermanent salary depends on role and experience.",
     actions: [
       { label: "Open 2026 Salary Calculator ↗", to: "/salary-calculator" },
       { label: "Book Rate Calibration Call ↗", to: "/contact" }
@@ -52,7 +51,7 @@ export const knowledgeBase = [
   {
     category: "cloud_devops",
     keywords: ["cloud", "devops", "platform engineer", "sre", "aws", "azure", "gcp", "kubernetes", "terraform", "site reliability"],
-    answer: "**Cloud & Platform Engineering 2026 Benchmarks (Australia)**:\n\n• **Cloud Solutions Architect**: $1,200 – $1,550/day (Perm: $185,000 – $240,000)\n• **Lead DevOps / Platform Engineer**: $1,100 – $1,400/day (Perm: $170,000 – $210,000)\n• **Site Reliability Engineer (SRE)**: $1,150 – $1,450/day (Perm: $175,000 – $220,000)\n\n*Key Driver*: High enterprise demand across Sydney and Melbourne banking hubs. Multi-cloud AWS/Azure certification combined with Terraform and Kubernetes commands an instant 15% rate premium.",
+    answer: "**Cloud & Platform rates (Australia)**\n• Cloud Architect: $1,200–$1,550/day\n• DevOps / Platform: $1,100–$1,400/day\n• SRE: $1,150–$1,450/day\nRates vary by location, experience, and skills.",
     actions: [
       { label: "View Cloud Specialisation ↗", to: "/specialisations" },
       { label: "Calculate Cloud Salary ↗", to: "/salary-calculator" },
@@ -69,7 +68,7 @@ export const knowledgeBase = [
   {
     category: "data_ai",
     keywords: ["data", "snowflake", "databricks", "genai", "ai", "machine learning", "mlops", "data architect", "data engineer", "dbt", "llm"],
-    answer: "**Data & Artificial Intelligence 2026 Benchmarks (Australia)**:\n\n• **Snowflake & Databricks Data Engineer**: $1,200 – $1,500/day (Perm: $175,000 – $215,000)\n• **Principal Data Architect**: $1,350 – $1,700/day (Perm: $200,000 – $250,000)\n• **GenAI & MLOps Specialist**: $1,300 – $1,650/day (Perm: $195,000 – $240,000)\n\n*Key Driver*: Lakehouse migrations and enterprise private LLM deployments are creating massive demand. We maintain a network of pre-vetted Snowflake and Databricks specialists.",
+    answer: "**Data & AI rates (Australia)**\n• Data Engineer: $1,200–$1,500/day\n• Data Architect: $1,350–$1,700/day\n• GenAI / MLOps: $1,300–$1,650/day\nRates vary by experience and project scope.",
     actions: [
       { label: "Explore Data & AI Practice ↗", to: "/specialisations" },
       { label: "Calculate Data Rates ↗", to: "/salary-calculator" },
@@ -86,7 +85,7 @@ export const knowledgeBase = [
   {
     category: "cybersecurity",
     keywords: ["cyber", "security", "zero trust", "apra", "cps 234", "cps 230", "essential 8", "soc", "grc", "incident response", "ciso", "infosec"],
-    answer: "**Cybersecurity & Governance 2026 Benchmarks (Australia)**:\n\n• **Zero-Trust & Cyber Security Architect**: $1,300 – $1,650/day (Perm: $195,000 – $245,000)\n• **Lead SecOps & Incident Response**: $1,150 – $1,450/day (Perm: $170,000 – $210,000)\n• **GRC & Cyber Compliance Consultant**: $1,100 – $1,400/day (Perm: $160,000 – $200,000)\n\n*Compliance Authority*: Every Prime mandate is aligned with **APRA CPS 234, CPS 230**, and the Australian Cyber Security Centre (ACSC) Essential 8 maturity frameworks. We supply NV1 and Baseline cleared security specialists across Sydney and Canberra.",
+    answer: "**Cybersecurity rates (Australia)**\n• Security Architect: $1,300–$1,650/day\n• SecOps / Incident Response: $1,150–$1,450/day\n• GRC Consultant: $1,100–$1,400/day\nWe recruit for APRA, CPS 230, and Essential Eight requirements.",
     actions: [
       { label: "Explore Cyber Practice ↗", to: "/specialisations" },
       { label: "Deploy Cyber Mandate ↗", to: "/contact" }
@@ -102,7 +101,7 @@ export const knowledgeBase = [
   {
     category: "cities",
     keywords: ["sydney", "melbourne", "brisbane", "canberra", "perth", "location", "city", "regional", "adelaide"],
-    answer: "**Australian Tech Remuneration Index by Geography (2026)**:\n\n• **Sydney (NSW)**: 100% (Market baseline — highest contractor volume across banking & fintech)\n• **Melbourne (VIC)**: 96% – 98% (Strong digital retail, healthtech, and platform engineering)\n• **Canberra (ACT)**: 104% – 110% (Substantial rate premium for NV1 / NV2 security clearance & federal mandates)\n• **Brisbane (QLD)**: 92% – 95% (Fast-growing cloud migration & public enterprise)\n• **Perth (WA)**: 98% – 102% (High demand for SCADA, cloud infrastructure & resource tech)",
+    answer: "**Indicative tech rates by city**\n• Sydney: Market baseline\n• Melbourne: Often similar to Sydney\n• Canberra: May be higher for security-cleared roles\n• Brisbane / Perth: Varies by specialty and demand\nRates depend on role, experience, and clearance.",
     actions: [
       { label: "Compare Cities on Calculator ↗", to: "/salary-calculator" },
       { label: "Book Regional Strategy Call ↗", to: "/contact" }
@@ -118,7 +117,7 @@ export const knowledgeBase = [
   {
     category: "hiring_process",
     keywords: ["hire", "hiring", "mandate", "shortlist", "turnaround", "how fast", "guarantee", "replacement", "100 day", "fees", "margin", "pricing", "cost to hire", "kaise hire kare"],
-    answer: "**Prime Talent Enterprise Engagement Model**:\n\n1. **Calibrated Shortlists**: Candidate profiles are assessed against the role brief, technical requirements, and team needs.\n2. **100-Day Replacement Shield**: If any placed contractor or permanent staff departs or underperforms within 100 days, we replace them immediately at zero additional cost.\n3. **JobGen.ai Pre-Screening**: Every candidate is evaluated through algorithmic technical rubrics combined with Ashwin Shiv's 18+ years of industry discretion.\n4. **Engagement Types**: Daily rate contract augmentations, fixed-term project teams, and executive search.",
+    answer: "**How hiring works**\n1. We clarify the role and requirements.\n2. We assess candidates against the brief.\n3. You review a focused shortlist.\n4. Eligible placements include a 100-day replacement shield; terms apply.",
     actions: [
       { label: "Submit Hiring Mandate ↗", to: "/contact" },
       { label: "Explore Our 4-Step Journey ↗", to: "/specialisations" }
@@ -133,15 +132,16 @@ export const knowledgeBase = [
   // --- 8. CANDIDATES & JOB SEEKERS ---
   {
     category: "candidate_jobs",
-    keywords: ["candidate", "job", "jobs", "apply", "resume", "cv", "seeking", "looking for role", "contractor", "naukri", "placement", "career"],
-    answer: "**Candidate Strategic Pathway**:\n\nWe partner with top 1% Australian IT specialists in **Cloud, Data & AI, and Cybersecurity** for high-impact contract mandates ($1,100 – $1,800/day) and leadership permanent roles ($180k – $280k).\n\nTo be considered for confidential Tier-1 banking, government, and enterprise roles:\n• Submit your CV or LinkedIn profile directly through our strategic portal\n• Ashwin Shiv's team will conduct a discreet market rate appraisal and align you with live mandates.",
+    keywords: ["candidate", "job", "jobs", "apply", "resume", "cv", "seeking", "looking for role", "role", "contractor", "naukri", "placement", "career", "careers"],
+    answer: "**Looking for a role?**\n• Browse current openings on our Careers page.\n• Or share your CV and target role through the candidate form.\n• Your details are handled confidentially.",
     actions: [
-      { label: "Submit Candidate Briefing ↗", to: "/contact" },
+      { label: "Browse Careers ↗", to: "/careers" },
+      { label: "Submit Your Profile ↗", to: "/contact?type=candidate#action-hub" },
       { label: "Benchmark Your Salary ↗", to: "/salary-calculator" }
     ],
     suggestions: [
       "Check 2026 Tech Salary Index",
-      "Practice Verticals We Hire In",
+      "Browse careers",
       "Book Confidential Career Chat"
     ]
   },
@@ -150,7 +150,7 @@ export const knowledgeBase = [
   {
     category: "ashwin_shiv",
     keywords: ["ashwin", "ashwin shiv", "director", "founder", "who is ashwin", "experience", "background", "credentials", "leadership", "kaun hai"],
-    answer: "**Ashwin Shiv — Director & Founder, Prime Talent Solutions**\n\n• **18+ Years Experience**: Deeply entrenched in the Australian technology recruitment landscape since 2007.\n• **Track Record**: Personally placed over 1,200+ elite engineers, architects, and technology executives across Sydney, Melbourne, and Canberra.\n• **Enterprise Trust**: Longstanding strategic talent partner to top ANZ banks, ASX 50 enterprises, and federal government departments.\n• **Philosophy**: Eliminating recruitment agency friction by personally validating candidate rubrics with precision and speed.",
+    answer: "**Ashwin Shiv — Founder & Director**\n• 18+ years in technology recruitment.\n• Works with enterprise, banking, and government clients.\n• Leads candidate assessment and client engagement directly.",
     actions: [
       { label: "Read Ashwin's Full Profile ↗", to: "/about" },
       { label: "Book 15-Min Call with Ashwin ↗", to: "/contact" },
@@ -167,7 +167,7 @@ export const knowledgeBase = [
   {
     category: "jobgen",
     keywords: ["jobgen", "jobgen.ai", "ai engine", "gobgen", "copilot", "algorithm", "technology stack"],
-    answer: "**JobGen.ai Integration**:\n\nPrime Talent Solutions is co-powered by **JobGen.ai**, an autonomous talent sourcing and algorithmic market indexing engine.\n\n• **Market Calibration**: Real-time aggregation of Australian tech day rates, salary trends, and candidate liquidity.\n• **Precision Rubrics**: Deep technical skill verification (e.g., AWS multi-region architectures, Databricks medallion patterns, APRA CPS 234 frameworks).\n• **Human + AI Hybrid**: JobGen.ai accelerates data intelligence; Ashwin Shiv personally guarantees candidate cultural alignment and executive fit.",
+    answer: "**JobGen.ai supports**\n• Talent sourcing and market insights.\n• Skills-based candidate assessment.\n• Recruiter-led review for role and culture fit.",
     actions: [
       { label: "Explore Specialisations ↗", to: "/specialisations" },
       { label: "Book Strategy Call ↗", to: "/contact" }
@@ -183,7 +183,7 @@ export const knowledgeBase = [
   {
     category: "contact_hq",
     keywords: ["contact", "phone", "mobile", "number", "email", "office", "address", "hq", "parramatta", "location", "reach", "call", "appointment"],
-    answer: "**Prime Talent Solutions Pty Ltd — Direct Contact Authority**:\n\n• **Sydney HQ**: Level 49, 8 Parramatta Square, Sydney NSW 2150\n• **Director Phone**: **+61 0450 173 053**\n• **Official Email**: **info@primetalent.com.au**\n• **Corporate Registration**: ABN 89 678 123 456\n• **Consultation**: 15-minute direct strategy briefings available with Ashwin Shiv.",
+    answer: "**Contact Prime Talent**\n• Phone: +61 0450 173 053\n• Email: info@primetalent.com.au\n• Office: Parramatta Square, Sydney\nBook a call through the Contact page.",
     actions: [
       { label: "Direct Call: +61 0450 173 053", href: "tel:+610450173053" },
       { label: "Email info@primetalent.com.au", href: "mailto:info@primetalent.com.au" },
@@ -200,7 +200,7 @@ export const knowledgeBase = [
   {
     category: "contract_vs_perm",
     keywords: ["contract vs perm", "contractor", "permanent", "perm", "fixed term", "contingent", "payroll"],
-    answer: "**Contract vs Permanent Hiring in Australia 2026**:\n\n• **Contract Mandates (Daily Rates)**:\n  - Flexibility: Ideal for cloud migrations, ERP upgrades, or APRA audits.\n  - Rates: $1,100 – $1,650 AUD/day + GST.\n\n• **Permanent Placement (Base + Super)**:\n  - Longevity: Strategic core leadership and long-term product stewardship.\n  - 100-Day Replacement Shield on all permanent hires.\n  - Packages: $170k – $260k + Super + Equity.",
+    answer: "**Contract vs permanent**\n• **Contract:** Usually paid as a day rate; suits defined or changing project needs.\n• **Permanent:** Annual salary; suits ongoing roles.\n• Pay depends on role, location, and experience.",
     actions: [
       { label: "Calculate Perm vs Contract ↗", to: "/salary-calculator" },
       { label: "Discuss Your Mandate ↗", to: "/contact" }
@@ -271,19 +271,19 @@ export function queryChatBrain(userInput, conversationHistory = []) {
 
   // Contextual fallback: check if user is asking a follow-up about a specific tech term
   const techTerms = [
-    { term: "kubernetes", reply: "Kubernetes and Platform Engineering are among the highest demanded skills in Australia ($1,200 – $1,450/day). We work with a network of pre-vetted engineers." },
-    { term: "aws", reply: "AWS Multi-Region and Well-Architected Certified Solutions Architects command $1,250 – $1,550/day across Sydney and Melbourne banking sectors." },
-    { term: "azure", reply: "Azure Enterprise Architects and Cloud Security engineers are in surging demand across APRA-regulated institutions, commanding $1,200 – $1,500/day." },
-    { term: "python", reply: "Senior Python Data & Backend Engineers with FastAPI, Spark, and AWS experience command $1,100 – $1,350/day in Australia." },
-    { term: "react", reply: "Lead React & Next.js engineers specializing in enterprise design systems command $1,050 – $1,300/day ($165k – $195k permanent base)." },
-    { term: "snowflake", reply: "Snowflake certified Data Architects and Migration Engineers command $1,250 – $1,550/day. We work with a network of pre-vetted specialists." },
-    { term: "databricks", reply: "Databricks Lakehouse & PySpark Engineers command $1,300 – $1,600/day across Australian financial and retail enterprises." }
+    { term: "kubernetes", reply: "**Kubernetes / Platform roles**\n• Indicative rate: $1,200–$1,450/day\n• Varies by experience and scope." },
+    { term: "aws", reply: "**AWS Architect**\n• Indicative rate: $1,250–$1,550/day\n• Varies by scope and experience." },
+    { term: "azure", reply: "**Azure / Cloud Security**\n• Indicative rate: $1,200–$1,500/day\n• Varies by role and experience." },
+    { term: "python", reply: "**Python Data / Backend**\n• Indicative rate: $1,100–$1,350/day\n• Depends on stack and seniority." },
+    { term: "react", reply: "**Lead React / Next.js**\n• Indicative rate: $1,050–$1,300/day\n• Permanent salary depends on experience." },
+    { term: "snowflake", reply: "**Snowflake Data roles**\n• Indicative rate: $1,250–$1,550/day\n• Varies by migration scope and seniority." },
+    { term: "databricks", reply: "**Databricks / PySpark**\n• Indicative rate: $1,300–$1,600/day\n• Depends on project and experience." }
   ];
 
   for (const t of techTerms) {
     if (cleanInput.includes(t.term)) {
       return {
-        text: `**${t.term.toUpperCase()} Specialized Insight**:\n\n${t.reply}\n\nWould you like to review verified candidate profiles or discuss your mandate with Ashwin Shiv?`,
+        text: `${t.reply}\n\nNeed a role benchmark or hiring support?`,
         actions: [
           { label: "Submit Hiring Mandate ↗", to: "/contact" },
           { label: "View Salary Index ↗", to: "/salary-calculator" }
@@ -299,17 +299,12 @@ export function queryChatBrain(userInput, conversationHistory = []) {
 
   // Intelligent General Fallback
   return {
-    text: "Prime Talent Solutions specializes exclusively in **Cloud, Data & AI, and Cybersecurity** for Australian enterprises, led personally by **Ashwin Shiv** (18+ years industry veteran).\n\nWe provide:\n• Carefully calibrated candidate shortlists\n• **100-Day Replacement Shield**\n• Comprehensive **2026 Tech Salary & Day Rate Benchmarking**\n\nHow can we best assist your project or career goals?",
+    text: "I can help with:\n• Tech salary benchmarks\n• Cloud, Data & AI, or Cyber hiring\n• Career opportunities\n• Booking a call with Ashwin Shiv\nWhat would you like to know?",
     actions: [
       { label: "Calculate 2026 Salary Index ↗", to: "/salary-calculator" },
       { label: "Deploy Hiring Mandate ↗", to: "/contact" },
       { label: "Speak with Ashwin Shiv ↗", to: "/contact" }
     ],
-    suggestions: [
-      "Cloud & DevOps Day Rates",
-      "Snowflake Data Engineer Rates",
-      "About Ashwin Shiv (18+ Yrs)",
-      "Direct HQ Phone Number"
-    ]
+    suggestions: ["Cloud rates", "Data rates", "Find a tech role", "Book a call"]
   };
 }

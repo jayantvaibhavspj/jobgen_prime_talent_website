@@ -5,7 +5,7 @@ export const roleDatasets = {
       contract: 1350, 
       perm: 205000, 
       spread: "$1,200 – $1,550", 
-      insight: "High enterprise demand across Sydney financial hubs. Multi-cloud AWS/Azure certification commanded at 15% premium." 
+      insight: "Sydney demand is strong; AWS/Azure skills may earn a premium."
     },
     { 
       name: "Lead DevOps / Platform Engineer", 

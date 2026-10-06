@@ -17,16 +17,8 @@ export default function Footer({ onOpenPortal }) {
             </Link>
 
             <p className="footer-desc">
-              Specialized <strong>Cloud, Data &amp; AI, and Cybersecurity</strong> for Australian enterprises. <br />
+              Specialist tech recruitment across Australia.
             </p>
-
-            <div className="footer-hq-pill">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              <span>Level 49, 8 Parramatta Square, Sydney NSW 2150</span>
-            </div>
 
             {/* Direct Contact Info */}
             <div className="footer-contact-cluster">
@@ -43,6 +35,14 @@ export default function Footer({ onOpenPortal }) {
                 </svg>
                 <span>Email: <strong>info@primetalent.com.au</strong></span>
               </a>
+            </div>
+
+            <div className="footer-hq-pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>Level 49, 8 Parramatta Square, Sydney NSW 2150</span>
             </div>
 
             {/* Official Company Social Channels */}
@@ -85,11 +85,11 @@ export default function Footer({ onOpenPortal }) {
           <div className="footer-col-links">
             <h4 className="footer-col-title">Practice Verticals</h4>
             <ul className="footer-link-list">
-              <li><Link to="/specialisations">Cloud &amp; Platform Engineering ↗</Link></li>
-              <li><Link to="/specialisations">Data Engineering &amp; GenAI ↗</Link></li>
-              <li><Link to="/specialisations">Cybersecurity &amp; Zero-Trust ↗</Link></li>
-              <li><Link to="/specialisations">Digital &amp; Tech Leadership ↗</Link></li>
-              <li><Link to="/salary-calculator">2026 Tech Salary Index ↗</Link></li>
+              <li><Link to="/specialisations">Cloud &amp; Platform ↗</Link></li>
+              <li><Link to="/specialisations">Data &amp; AI ↗</Link></li>
+              <li><Link to="/specialisations">Cybersecurity ↗</Link></li>
+              <li><Link to="/specialisations">Digital Delivery ↗</Link></li>
+              <li><Link to="/salary-calculator">Salary Index ↗</Link></li>
             </ul>
           </div>
 
@@ -97,18 +97,16 @@ export default function Footer({ onOpenPortal }) {
           <div className="footer-col-links">
             <h4 className="footer-col-title">Corporate Access</h4>
             <ul className="footer-link-list">
-              <li><Link to="/about">About Ashwin Shiv (18+ Yrs) ↗</Link></li>
-              <li><Link to="/careers">Career Opportunities ↗</Link></li>
-              <li><Link to="/specialisations#journey">Our 4-Step Placement Journey ↗</Link></li>
-              <li><Link to="/contact">Book Strategy Consultation ↗</Link></li>
-              <li><a href="/#action-hub">Submit Hiring Mandate ↗</a></li>
+              <li><Link to="/about">About Ashwin ↗</Link></li>
+              <li><Link to="/careers">Careers ↗</Link></li>
+              <li><Link to="/contact">Book a Call ↗</Link></li>
               <li>
                 <button 
                   type="button" 
                   onClick={onOpenPortal} 
                   title="Open Client & Candidate Portal"
                 >
-                  Client &amp; Candidate Portal ↗
+                  Client Portal ↗
                 </button>
               </li>
             </ul>
@@ -122,16 +120,15 @@ export default function Footer({ onOpenPortal }) {
                 <img src="/assets/jobgen-logo.png" alt="JobGen.ai Logo" className="jobgen-logo-img" />
                 <div className="jobgen-title-group">
                   <span className="jobgen-main-name">JobGen.ai</span>
-                  <span className="jobgen-tagline">Autonomous Tech Sourcing Engine</span>
+                  <span className="jobgen-tagline">AI talent platform</span>
                 </div>
               </div>
               <p className="jobgen-desc-text">
-                Every Prime mandate is accelerated by JobGen.ai’s algorithmic candidate benchmarking and Ashwin Shiv’s 18+ years of Australian enterprise industry authority.
+                AI-assisted talent search, guided by experienced recruiters.
               </p>
               <div className="jobgen-feature-pills">
-                <span className="jobgen-pill">✓ Curated Shortlists</span>
-                <span className="jobgen-pill">✓ APRA CPS 234 Aligned</span>
-                <span className="jobgen-pill">✓ 100-Day Replacement Shield</span>
+                <span className="jobgen-pill">Curated talent</span>
+                <span className="jobgen-pill">100-day guarantee</span>
               </div>
             </div>
           </div>
@@ -141,12 +138,12 @@ export default function Footer({ onOpenPortal }) {
         <div className="footer-bottom-bar">
           <div className="footer-bottom-info">
             <p className="footer-copyright">
-              © 2026 Prime Talent Solutions Pty Ltd. ABN 89 678 123 456. Level 49, 8 Parramatta Square, Sydney NSW 2150. All rights reserved.
+              © 2026 Prime Talent Solutions Pty Ltd. ABN 89 678 123 456.
             </p>
             <div className="footer-legal-links">
               <a href="#privacy">Privacy Policy</a>
               <a href="#terms">Terms of Engagement</a>
-              <a href="#security">APRA CPS 234 Compliance</a>
+              <a href="#security">APRA CPS 234</a>
               <a href="#governance">Modern Slavery Statement</a>
             </div>
           </div>
