@@ -423,7 +423,8 @@ body {
    ========================================================================== */
 .hero-section {
   position: relative;
-  min-height: calc(100vh - 108px);
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -433,10 +434,16 @@ body {
   overflow: hidden;
 }
 
-/* Hero Cinematic Background (Symmetrical space below the floating navbar) */
+@media (min-width: 992px) {
+  .hero-section {
+    min-height: max(100vh, 56.25vw);
+  }
+}
+
+/* Hero Cinematic Background (Full size luxury backdrop extending edge-to-edge) */
 .hero-backdrop-container {
   position: absolute;
-  top: 108px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -451,7 +458,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center bottom;
   opacity: 0;                          /* starts invisible, JS fades it in */
   filter: contrast(1.04) brightness(1.15) saturate(1.08);
   z-index: 0;
@@ -468,7 +475,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center bottom;
   opacity: 0.38;
   filter: contrast(1.1) brightness(0.9);
 }
@@ -487,7 +494,8 @@ body {
 }
 
 /* === VIDEO PAUSE/PLAY BUTTON === */
-.hero-video-control {
+.hero-video-control,
+.hero-video-toggle-btn {
   position: absolute;
   bottom: 24px;
   right: 24px;
@@ -495,8 +503,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(6, 9, 17, 0.55);
@@ -507,7 +515,8 @@ body {
   outline: none;
 }
 
-.hero-video-control:hover {
+.hero-video-control:hover,
+.hero-video-toggle-btn:hover {
   background: rgba(14, 165, 233, 0.25);
   border-color: rgba(14, 165, 233, 0.5);
   color: #fff;
@@ -526,10 +535,10 @@ body {
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(6, 9, 17, 0.22) 0%,
-    rgba(8, 13, 26, 0.32) 40%,
-    rgba(6, 9, 17, 0.45) 80%,
-    rgba(6, 9, 17, 0.75) 100%
+    rgba(6, 9, 17, 0.40) 0%,
+    rgba(8, 13, 26, 0.20) 25%,
+    rgba(6, 9, 17, 0.20) 75%,
+    rgba(6, 9, 17, 0.45) 100%
   );
 }
 
@@ -991,7 +1000,7 @@ body {
 
 .metrics-dock-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   padding: 36px 0;
   gap: 16px;
 }
@@ -2041,6 +2050,7 @@ body {
 .testi-avatar-init {
   width: 42px;
   height: 42px;
+  flex: 0 0 42px;
   border-radius: 50%;
   background: rgba(14, 165, 233, 0.2);
   color: #38bdf8;
@@ -2048,6 +2058,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  object-fit: cover;
+}
+
+.testi-photo-note {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 0.75rem;
 }
 
 .testi-name {
@@ -3256,7 +3273,7 @@ body {
   }
 
   .hero-backdrop-container {
-    top: 80px;
+    top: 0;
   }
 
   .hero-section {
@@ -3971,6 +3988,9 @@ body {
   color: #ffffff;
   border-color: #0284c7;
   box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25);
+}
+.section-light #jobs .filter-chips-row {
+  margin-bottom: 24px;
 }
 
 .section-light .job-card-item {
@@ -5064,8 +5084,10 @@ body {
 .hud-live-tag {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-weight: 700;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
 }
 
 .hud-pulse-dot {

@@ -134,9 +134,9 @@ export default function About() {
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Shortlist Turnaround</strong></td>
-                  <td><span className="matrix-fail">✕</span> 4 to 6 weeks average delay</td>
-                  <td className="col-prime"><span className="matrix-pass">✓</span> <strong>48 Hours Guaranteed</strong></td>
+                  <td><strong>Candidate Vetting</strong></td>
+                  <td><span className="matrix-fail">✕</span> Unvetted resume volume</td>
+                  <td className="col-prime"><span className="matrix-pass">✓</span> <strong>Founder-led technical assessment</strong></td>
                 </tr>
                 <tr>
                   <td><strong>Recruiter Seniority</strong></td>
@@ -177,6 +177,7 @@ export default function About() {
             <span className="section-tag">VERIFIED FEEDBACK</span>
             <h2 className="section-title">Verified Executive Testimonials</h2>
             <p className="section-subtitle">Real experiences from engineering leaders and placed candidates across Australia.</p>
+            <p className="testi-photo-note">Portraits are illustrative stock photos, not reviewer photographs.</p>
           </div>
 
           <div className="testimonials-row">
@@ -190,7 +191,7 @@ export default function About() {
               </div>
               <p className="testi-quote-text">&ldquo;Prime Talent scaled our Data &amp; Cloud team with outstanding speed and quality. Their turnaround time in presenting vetted candidates exceeded our expectations.&rdquo;</p>
               <div className="testi-profile">
-                <div className="testi-avatar-init">PU</div>
+                <img className="testi-avatar-init" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&amp;fit=crop&amp;w=120&amp;h=120&amp;q=80" alt="Illustrative stock portrait, not Priyanka U." />
                 <div>
                   <div className="testi-name">Priyanka U.</div>
                   <div className="testi-title">Talent Acquisition Manager, Enterprise Tech</div>
@@ -208,7 +209,7 @@ export default function About() {
               </div>
               <p className="testi-quote-text">&ldquo;Exceptional candidate support. From interview coaching to securing a top offer, Ashwin's team ensured a seamless transition into my new role.&rdquo;</p>
               <div className="testi-profile">
-                <div className="testi-avatar-init">AS</div>
+                <img className="testi-avatar-init" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&amp;fit=crop&amp;w=120&amp;h=120&amp;q=80" alt="Illustrative stock portrait, not Aditya Singh." />
                 <div>
                   <div className="testi-name">Aditya Singh</div>
                   <div className="testi-title">Senior Business Analyst, Banking</div>
@@ -226,7 +227,7 @@ export default function About() {
               </div>
               <p className="testi-quote-text">&ldquo;Ashwin's domain expertise in Data &amp; Cloud is unmatched in Australia. They coached me through interviews and landed me an ideal contract within 3 days.&rdquo;</p>
               <div className="testi-profile">
-                <div className="testi-avatar-init">PM</div>
+                <img className="testi-avatar-init" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&amp;fit=crop&amp;w=120&amp;h=120&amp;q=80" alt="Illustrative stock portrait, not Peter M." />
                 <div>
                   <div className="testi-name">Peter M.</div>
                   <div className="testi-title">Senior Data Architect, FinTech</div>

@@ -18,7 +18,6 @@ export default function Footer({ onOpenPortal }) {
 
             <p className="footer-desc">
               Specialized <strong>Cloud, Data &amp; AI, and Cybersecurity</strong> for Australian enterprises. <br />
-              Led personally by <strong>Ashwin Shiv</strong> with 18+ years market authority.
             </p>
 
             <div className="footer-hq-pill">
@@ -48,7 +47,6 @@ export default function Footer({ onOpenPortal }) {
 
             {/* Official Company Social Channels */}
             <div className="footer-social-wrap">
-              <span className="footer-social-label">Official Social Channels</span>
               <div className="footer-social-links">
                 {/* Prime Talent Solutions LinkedIn Page */}
                 <a 
@@ -62,7 +60,6 @@ export default function Footer({ onOpenPortal }) {
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/>
                   </svg>
-                  <span>Prime Talent LinkedIn ↗</span>
                 </a>
 
                 {/* Prime Talent Solutions Instagram Page */}
@@ -79,7 +76,6 @@ export default function Footer({ onOpenPortal }) {
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                   </svg>
-                  <span>Prime Talent Instagram ↗</span>
                 </a>
               </div>
             </div>
@@ -102,9 +98,10 @@ export default function Footer({ onOpenPortal }) {
             <h4 className="footer-col-title">Corporate Access</h4>
             <ul className="footer-link-list">
               <li><Link to="/about">About Ashwin Shiv (18+ Yrs) ↗</Link></li>
+              <li><Link to="/careers">Career Opportunities ↗</Link></li>
               <li><Link to="/specialisations#journey">Our 4-Step Placement Journey ↗</Link></li>
               <li><Link to="/contact">Book Strategy Consultation ↗</Link></li>
-              <li><a href="/#action-hub">Deploy 48h Hiring Mandate ↗</a></li>
+              <li><a href="/#action-hub">Submit Hiring Mandate ↗</a></li>
               <li>
                 <button 
                   type="button" 
@@ -132,18 +129,12 @@ export default function Footer({ onOpenPortal }) {
                 Every Prime mandate is accelerated by JobGen.ai’s algorithmic candidate benchmarking and Ashwin Shiv’s 18+ years of Australian enterprise industry authority.
               </p>
               <div className="jobgen-feature-pills">
-                <span className="jobgen-pill">✓ 48-Hour Shortlist</span>
+                <span className="jobgen-pill">✓ Curated Shortlists</span>
                 <span className="jobgen-pill">✓ APRA CPS 234 Aligned</span>
                 <span className="jobgen-pill">✓ 100-Day Replacement Shield</span>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Traditional Custodians Acknowledgement */}
-        <div className="indigenous-acknowledgement">
-          <strong>Acknowledgment of Country</strong>
-          Prime Talent Solutions acknowledges the Traditional Custodians of the lands across Australia upon which we operate, and specifically the Dharug people of the Eora Nation where our Sydney headquarters is located. We pay our respect to Elders past, present, and emerging.
         </div>
 
         {/* Bottom Legal & Copyright Bar */}

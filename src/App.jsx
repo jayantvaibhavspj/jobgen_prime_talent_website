@@ -13,13 +13,21 @@ import About from './pages/About';
 import Specialisations from './pages/Specialisations';
 import SalaryCalculator from './pages/SalaryCalculator';
 import Contact from './pages/Contact';
+import Careers from './pages/Careers';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    if (hash) {
+      const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+    }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 }
@@ -59,6 +67,7 @@ export default function App() {
           <Route path="/specialisations" element={<Specialisations />} />
           <Route path="/salary-calculator" element={<SalaryCalculator />} />
           <Route path="/contact" element={<Contact onShowToast={showToast} />} />
+          <Route path="/careers" element={<Careers />} />
           {/* Fallback to Home */}
           <Route path="*" element={<Home onShowToast={showToast} onOpenBot={handleOpenBot} />} />
         </Routes>

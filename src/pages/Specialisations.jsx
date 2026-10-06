@@ -38,7 +38,7 @@ export default function Specialisations() {
                     <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
                   </svg>
                 </div>
-                <span className="bento-turnaround-badge">48h Shortlist</span>
+                <span className="bento-turnaround-badge">Enterprise Ready</span>
               </div>
               <h3 className="bento-heading">Cloud &amp; Infrastructure</h3>
               <p className="bento-summary">Architects, DevOps leads, and SRE specialists for enterprise AWS, Azure, and multi-cloud modernization.</p>
@@ -163,7 +163,7 @@ export default function Specialisations() {
 
             <div className="journey-step-box">
               <div className="journey-step-tag">STEP 02</div>
-              <span className="journey-time-tag">48h Guaranteed</span>
+              <span className="journey-time-tag">Candidate Presentation</span>
               <h4>Curated Shortlist</h4>
               <p>JobGen.ai intelligence screens our 500+ pre-vetted Australian tech network, delivering 3 top-tier candidates with detailed rubrics.</p>
             </div>
@@ -189,10 +189,9 @@ export default function Specialisations() {
       <section className="section section-light" id="specialisations-cta">
         <LiveWatermark variant="wm-aus" />
         <div className="container" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-          <span className="section-tag">IMMEDIATE 48-HOUR ACCESS</span>
           <h2 className="section-title">Ready to Fill an Urgent Technical Gap?</h2>
           <p className="section-subtitle" style={{ marginBottom: '32px' }}>
-            Bypass junior agency screeners. Speak directly with Ashwin Shiv to calibrate your requirements and receive 3 pre-vetted Australian candidates within 48 hours.
+            Speak directly with Ashwin Shiv to calibrate your requirements and review a curated shortlist of pre-vetted Australian candidates.
           </p>
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/contact" className="btn-primary-hero">

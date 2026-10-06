@@ -765,7 +765,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       {
         keywords: ['data', 'snowflake', 'databricks', 'hire'],
-        answer: "We have active, pre-vetted Snowflake and Databricks data engineers available for 48-hour deployment. Would you like me to connect you directly with Ashwin Shiv to review candidate rubrics?"
+        answer: "We work with a network of pre-vetted Snowflake and Databricks data engineers. Would you like me to connect you directly with Ashwin Shiv to review candidate rubrics?"
       },
       {
         keywords: ['ashwin', 'founder', 'background', 'who is'],
@@ -795,7 +795,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           const lower = query.toLowerCase();
           let matched = botResponses.find(r => r.keywords.some(k => lower.includes(k)));
-          const reply = matched ? matched.answer : "Prime Talent Solutions specializes in Cloud, Data & AI, and Cybersecurity across Australia with 48h guaranteed shortlists. Would you like to request talent or speak with Ashwin Shiv?";
+          const reply = matched ? matched.answer : "Prime Talent Solutions specializes in Cloud, Data & AI, and Cybersecurity across Australia, with candidate shortlists calibrated to each hiring brief. Would you like to request talent or speak with Ashwin Shiv?";
           appendBotMessage(reply, 'bot');
         }, 500);
       });

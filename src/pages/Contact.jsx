@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import LiveWatermark from '../components/LiveWatermark';
 
 export default function Contact({ onShowToast }) {
+  const [searchParams] = useSearchParams();
   const [bookSlot, setBookSlot] = useState('Tomorrow 10:00 AM');
-  const [hubTab, setHubTab] = useState('employer');
+  const [hubTab, setHubTab] = useState(() => searchParams.get('type') === 'candidate' ? 'candidate' : 'employer');
+  const [candidateRole, setCandidateRole] = useState(searchParams.get('role') || '');
+
+  useEffect(() => {
+    if (searchParams.get('type') === 'candidate') {
+      setHubTab('candidate');
+      document.getElementById('action-hub')?.scrollIntoView({ behavior: 'smooth' });
+    }
+    setCandidateRole(searchParams.get('role') || '');
+  }, [searchParams]);
 
   const handleBookingSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +32,7 @@ export default function Contact({ onShowToast }) {
     e.preventDefault();
     onShowToast('✓ Profile submitted confidentially to Ashwin Shiv.');
     e.target.reset();
+    setCandidateRole('');
   };
 
   return (
@@ -186,7 +197,7 @@ export default function Contact({ onShowToast }) {
                   </div>
                 </div>
                 <div className="hub-submit-row">
-                  <button type="submit" className="hub-submit-btn">Deploy 48h Shortlist Mandate ↗</button>
+                  <button type="submit" className="hub-submit-btn">Submit Hiring Mandate ↗</button>
                   <span className="hub-trust-note">Ashwin Shiv personally handles your requirement</span>
                 </div>
               </form>
@@ -203,7 +214,14 @@ export default function Contact({ onShowToast }) {
                   </div>
                   <div className="input-field-wrap">
                     <label>Role / Target Discipline</label>
-                    <input type="text" className="form-input-styled" placeholder="e.g. Senior Data Engineer" required />
+                    <input
+                      type="text"
+                      className="form-input-styled"
+                      placeholder="e.g. Senior Data Engineer"
+                      value={candidateRole}
+                      onChange={(e) => setCandidateRole(e.target.value)}
+                      required
+                    />
                   </div>
                   <div className="input-field-wrap">
                     <label>LinkedIn Profile URL</label>

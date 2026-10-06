@@ -46,6 +46,9 @@ export default function Header() {
             <NavLink to="/salary-calculator" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMobileMenu}>
               Salary Index
             </NavLink>
+            <NavLink to="/careers" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMobileMenu}>
+              Careers
+            </NavLink>
             <NavLink to="/contact" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMobileMenu}>
               Contact
             </NavLink>
@@ -53,8 +56,8 @@ export default function Header() {
 
           {/* Right Header Actions */}
           <div className="header-actions">
-            <Link to="/contact" className="btn-header-cta" onClick={closeMobileMenu}>
-              <span>Book a Call ↗</span>
+            <Link to="/#contact" className="btn-header-cta" onClick={closeMobileMenu}>
+              <span>Book Call ↗</span>
             </Link>
 
             <button 

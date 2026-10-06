@@ -7,7 +7,7 @@ export const initialSuggestions = [
   "2026 Tech Salary Index",
   "Hire Cloud / DevOps Talent",
   "About Ashwin Shiv (18+ Yrs)",
-  "48-Hour Shortlist Guarantee",
+  "How does your shortlist process work?",
   "Book Strategy Consultation"
 ];
 
@@ -44,7 +44,7 @@ export const knowledgeBase = [
       "DevOps Rates in Sydney vs Melbourne",
       "Snowflake Data Engineer Rates",
       "Cybersecurity Day Rates",
-      "Deploy 48h Hiring Mandate"
+      "Submit a Hiring Mandate"
     ]
   },
 
@@ -69,7 +69,7 @@ export const knowledgeBase = [
   {
     category: "data_ai",
     keywords: ["data", "snowflake", "databricks", "genai", "ai", "machine learning", "mlops", "data architect", "data engineer", "dbt", "llm"],
-    answer: "**Data & Artificial Intelligence 2026 Benchmarks (Australia)**:\n\n• **Snowflake & Databricks Data Engineer**: $1,200 – $1,500/day (Perm: $175,000 – $215,000)\n• **Principal Data Architect**: $1,350 – $1,700/day (Perm: $200,000 – $250,000)\n• **GenAI & MLOps Specialist**: $1,300 – $1,650/day (Perm: $195,000 – $240,000)\n\n*Key Driver*: Lakehouse migrations and enterprise private LLM deployments are creating massive demand. We maintain pre-vetted Snowflake and Databricks talent ready for 48h placement.",
+    answer: "**Data & Artificial Intelligence 2026 Benchmarks (Australia)**:\n\n• **Snowflake & Databricks Data Engineer**: $1,200 – $1,500/day (Perm: $175,000 – $215,000)\n• **Principal Data Architect**: $1,350 – $1,700/day (Perm: $200,000 – $250,000)\n• **GenAI & MLOps Specialist**: $1,300 – $1,650/day (Perm: $195,000 – $240,000)\n\n*Key Driver*: Lakehouse migrations and enterprise private LLM deployments are creating massive demand. We maintain a network of pre-vetted Snowflake and Databricks specialists.",
     actions: [
       { label: "Explore Data & AI Practice ↗", to: "/specialisations" },
       { label: "Calculate Data Rates ↗", to: "/salary-calculator" },
@@ -93,7 +93,7 @@ export const knowledgeBase = [
     ],
     suggestions: [
       "Canberra Defense/Gov Clearance Rates",
-      "48-Hour Shortlist Guarantee",
+      "How does your shortlist process work?",
       "About Ashwin Shiv (18+ Yrs)"
     ]
   },
@@ -114,13 +114,13 @@ export const knowledgeBase = [
     ]
   },
 
-  // --- 7. HIRING & 48-HOUR GUARANTEE ---
+  // --- 7. HIRING PROCESS ---
   {
     category: "hiring_process",
-    keywords: ["hire", "hiring", "mandate", "shortlist", "turnaround", "how fast", "48 hour", "48h", "guarantee", "replacement", "100 day", "fees", "margin", "pricing", "cost to hire", "kaise hire kare"],
-    answer: "**Prime Talent Enterprise Engagement Model**:\n\n1. **48-Hour Shortlist**: We submit 2–3 thoroughly calibrated candidate dossiers within 48 hours of mandate intake.\n2. **100-Day Replacement Shield**: If any placed contractor or permanent staff departs or underperforms within 100 days, we replace them immediately at zero additional cost.\n3. **JobGen.ai Pre-Screening**: Every candidate is evaluated through algorithmic technical rubrics combined with Ashwin Shiv's 18+ years of industry discretion.\n4. **Engagement Types**: Daily rate contract augmentations, fixed-term project teams, and executive search.",
+    keywords: ["hire", "hiring", "mandate", "shortlist", "turnaround", "how fast", "guarantee", "replacement", "100 day", "fees", "margin", "pricing", "cost to hire", "kaise hire kare"],
+    answer: "**Prime Talent Enterprise Engagement Model**:\n\n1. **Calibrated Shortlists**: Candidate profiles are assessed against the role brief, technical requirements, and team needs.\n2. **100-Day Replacement Shield**: If any placed contractor or permanent staff departs or underperforms within 100 days, we replace them immediately at zero additional cost.\n3. **JobGen.ai Pre-Screening**: Every candidate is evaluated through algorithmic technical rubrics combined with Ashwin Shiv's 18+ years of industry discretion.\n4. **Engagement Types**: Daily rate contract augmentations, fixed-term project teams, and executive search.",
     actions: [
-      { label: "Deploy 48h Hiring Mandate ↗", to: "/contact" },
+      { label: "Submit Hiring Mandate ↗", to: "/contact" },
       { label: "Explore Our 4-Step Journey ↗", to: "/specialisations" }
     ],
     suggestions: [
@@ -157,7 +157,7 @@ export const knowledgeBase = [
       { label: "Connect on LinkedIn ↗", href: "https://www.linkedin.com/company/prime-talent-solutions/", isExternal: true }
     ],
     suggestions: [
-      "How does 48-Hour Shortlist work?",
+      "How does your shortlist process work?",
       "Sydney Parramatta HQ Location",
       "2026 Tech Salary Index"
     ]
@@ -173,7 +173,7 @@ export const knowledgeBase = [
       { label: "Book Strategy Call ↗", to: "/contact" }
     ],
     suggestions: [
-      "48-Hour Shortlist Guarantee",
+      "How does your shortlist process work?",
       "Check 2026 Salary Index",
       "Contact Ashwin Shiv"
     ]
@@ -190,7 +190,7 @@ export const knowledgeBase = [
       { label: "Book Online Calendar ↗", to: "/contact" }
     ],
     suggestions: [
-      "Deploy 48h Hiring Mandate",
+      "Submit a Hiring Mandate",
       "About Ashwin Shiv (18+ Yrs)",
       "2026 Tech Salary Index"
     ]
@@ -200,13 +200,13 @@ export const knowledgeBase = [
   {
     category: "contract_vs_perm",
     keywords: ["contract vs perm", "contractor", "permanent", "perm", "fixed term", "contingent", "payroll"],
-    answer: "**Contract vs Permanent Hiring in Australia 2026**:\n\n• **Contract Mandates (Daily Rates)**:\n  - Fastest deployment: Shortlists delivered in 24–48 hours, candidate on-site in 5–10 days.\n  - Flexibility: Ideal for cloud migrations, ERP upgrades, or APRA audits.\n  - Rates: $1,100 – $1,650 AUD/day + GST.\n\n• **Permanent Placement (Base + Super)**:\n  - Longevity: Strategic core leadership and long-term product stewardship.\n  - 100-Day Replacement Shield on all permanent hires.\n  - Packages: $170k – $260k + Super + Equity.",
+    answer: "**Contract vs Permanent Hiring in Australia 2026**:\n\n• **Contract Mandates (Daily Rates)**:\n  - Flexibility: Ideal for cloud migrations, ERP upgrades, or APRA audits.\n  - Rates: $1,100 – $1,650 AUD/day + GST.\n\n• **Permanent Placement (Base + Super)**:\n  - Longevity: Strategic core leadership and long-term product stewardship.\n  - 100-Day Replacement Shield on all permanent hires.\n  - Packages: $170k – $260k + Super + Equity.",
     actions: [
       { label: "Calculate Perm vs Contract ↗", to: "/salary-calculator" },
       { label: "Discuss Your Mandate ↗", to: "/contact" }
     ],
     suggestions: [
-      "Deploy 48h Hiring Mandate",
+      "Submit a Hiring Mandate",
       "What are Cloud Architect Day Rates?",
       "Book Strategy Consultation"
     ]
@@ -271,12 +271,12 @@ export function queryChatBrain(userInput, conversationHistory = []) {
 
   // Contextual fallback: check if user is asking a follow-up about a specific tech term
   const techTerms = [
-    { term: "kubernetes", reply: "Kubernetes and Platform Engineering are among the highest demanded skills in Australia ($1,200 – $1,450/day). We have pre-vetted engineers ready for 48h deployment." },
+    { term: "kubernetes", reply: "Kubernetes and Platform Engineering are among the highest demanded skills in Australia ($1,200 – $1,450/day). We work with a network of pre-vetted engineers." },
     { term: "aws", reply: "AWS Multi-Region and Well-Architected Certified Solutions Architects command $1,250 – $1,550/day across Sydney and Melbourne banking sectors." },
     { term: "azure", reply: "Azure Enterprise Architects and Cloud Security engineers are in surging demand across APRA-regulated institutions, commanding $1,200 – $1,500/day." },
     { term: "python", reply: "Senior Python Data & Backend Engineers with FastAPI, Spark, and AWS experience command $1,100 – $1,350/day in Australia." },
     { term: "react", reply: "Lead React & Next.js engineers specializing in enterprise design systems command $1,050 – $1,300/day ($165k – $195k permanent base)." },
-    { term: "snowflake", reply: "Snowflake certified Data Architects and Migration Engineers command $1,250 – $1,550/day with 48-hour shortlist availability." },
+    { term: "snowflake", reply: "Snowflake certified Data Architects and Migration Engineers command $1,250 – $1,550/day. We work with a network of pre-vetted specialists." },
     { term: "databricks", reply: "Databricks Lakehouse & PySpark Engineers command $1,300 – $1,600/day across Australian financial and retail enterprises." }
   ];
 
@@ -285,7 +285,7 @@ export function queryChatBrain(userInput, conversationHistory = []) {
       return {
         text: `**${t.term.toUpperCase()} Specialized Insight**:\n\n${t.reply}\n\nWould you like to review verified candidate profiles or discuss your mandate with Ashwin Shiv?`,
         actions: [
-          { label: "Deploy 48h Mandate ↗", to: "/contact" },
+          { label: "Submit Hiring Mandate ↗", to: "/contact" },
           { label: "View Salary Index ↗", to: "/salary-calculator" }
         ],
         suggestions: [
@@ -299,7 +299,7 @@ export function queryChatBrain(userInput, conversationHistory = []) {
 
   // Intelligent General Fallback
   return {
-    text: "Prime Talent Solutions specializes exclusively in **Cloud, Data & AI, and Cybersecurity** for Australian enterprises, led personally by **Ashwin Shiv** (18+ years industry veteran).\n\nWe provide:\n• **48-Hour Shortlists** on all enterprise mandates\n• **100-Day Replacement Shield**\n• Comprehensive **2026 Tech Salary & Day Rate Benchmarking**\n\nHow can we best assist your project or career goals?",
+    text: "Prime Talent Solutions specializes exclusively in **Cloud, Data & AI, and Cybersecurity** for Australian enterprises, led personally by **Ashwin Shiv** (18+ years industry veteran).\n\nWe provide:\n• Carefully calibrated candidate shortlists\n• **100-Day Replacement Shield**\n• Comprehensive **2026 Tech Salary & Day Rate Benchmarking**\n\nHow can we best assist your project or career goals?",
     actions: [
       { label: "Calculate 2026 Salary Index ↗", to: "/salary-calculator" },
       { label: "Deploy Hiring Mandate ↗", to: "/contact" },

@@ -32,7 +32,7 @@ export default function PrimeBot({ externalOpenSignal }) {
       text: "G'day! I'm **PrimeBot**, powered by **JobGen.ai** with **Ashwin Shiv's** 18+ years of Australian enterprise IT recruitment authority.\n\nAsk me about **2026 tech day rates**, hiring **Cloud, Data & AI, or Cybersecurity** contractors, or booking a strategy consultation.",
       actions: [
         { label: "2026 Salary Index ↗", to: "/salary-calculator" },
-        { label: "48h Hiring Mandate ↗", to: "/contact" }
+        { label: "Submit Hiring Mandate ↗", to: "/contact" }
       ],
       suggestions: initialSuggestions
     }

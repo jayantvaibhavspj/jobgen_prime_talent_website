@@ -7,7 +7,6 @@ import { sampleJobs } from '../data/salaryData';
 export default function Home({ onShowToast, onOpenBot }) {
   // Video state
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   // Stats Counters
@@ -35,7 +34,7 @@ export default function Home({ onShowToast, onOpenBot }) {
     let loopTimeout = null;
     let pulseTimeout = null;
     const duration = 1500;
-    const targets = { exp: 18, speed: 48, retention: 96, placed: 500 };
+    const targets = { exp: 18, speed: 4, retention: 96, placed: 500 };
 
     const runCountUp = () => {
       if (animId) cancelAnimationFrame(animId);
@@ -102,17 +101,6 @@ export default function Home({ onShowToast, onOpenBot }) {
     };
   }, []);
 
-  const toggleVideo = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.paused) {
-      videoRef.current.play();
-      setIsPlaying(true);
-    } else {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    }
-  };
-
   const handleQuickApply = (roleTitle) => {
     setHubTab('candidate');
     setCandRole(roleTitle);
@@ -171,24 +159,6 @@ export default function Home({ onShowToast, onOpenBot }) {
           {/* Interactive Network Particles */}
           <HeroParticles />
 
-          <button 
-            id="heroVideoToggle" 
-            className="hero-video-toggle-btn" 
-            title={isPlaying ? "Pause background video" : "Play background video"}
-            aria-label="Toggle background video"
-            onClick={toggleVideo}
-          >
-            {isPlaying ? (
-              <svg id="heroPauseIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <rect x="6" y="4" width="4" height="16"/>
-                <rect x="14" y="4" width="4" height="16"/>
-              </svg>
-            ) : (
-              <svg id="heroPlayIcon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="5 3 19 12 5 21 5 3"/>
-              </svg>
-            )}
-          </button>
         </div>
 
         <div className="container hero-content-container">
@@ -196,7 +166,7 @@ export default function Home({ onShowToast, onOpenBot }) {
             <h1 className="hero-main-title">
               Top 1% Australian Tech Talent. <br />
               <span className="hero-highlight-phrase">
-                Delivered in 48 Hours.
+                Curated for Your Enterprise.
                 <svg className="curved-arrow-accent" viewBox="0 0 250 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3 10.5C65 2.5 185 2.5 247 10.5" stroke="#f59e0b" strokeWidth="3.5" strokeLinecap="round"/>
                 </svg>
@@ -236,10 +206,9 @@ export default function Home({ onShowToast, onOpenBot }) {
             <div className="dock-metric-col metric-data">
               <div className="dock-number">
                 <span className={`stat-counter ${isPulsing ? 'count-pulse' : ''}`}>{counters.speed}</span>
-                <span className="accent-unit">h</span>
               </div>
-              <div className="dock-label">Shortlist Speed</div>
-              <div className="dock-subtext">Guaranteed vetted technical leads</div>
+              <div className="dock-label">Specialist Verticals</div>
+              <div className="dock-subtext">Cloud, Data &amp; AI, Cyber &amp; Digital</div>
             </div>
 
             <div className="dock-metric-col metric-cyber">
@@ -268,10 +237,9 @@ export default function Home({ onShowToast, onOpenBot }) {
         <LiveWatermark variant="wm-cloud" />
         <div className="container">
           <div className="section-header">
-            <span className="section-tag">SPECIALISED PRACTICE VERTICALS</span>
             <h2 className="section-title">Four Pillars of High-Conviction Tech Delivery</h2>
             <p className="section-subtitle">
-              We do not generalize. Prime Talent focuses exclusively on four high-impact verticals shaping Australian enterprise capability, delivering pre-vetted leads within 48 hours.
+              We do not generalize. Prime Talent focuses exclusively on four high-impact verticals shaping Australian enterprise capability, matching organisations with carefully vetted specialists.
             </p>
           </div>
 
@@ -284,7 +252,7 @@ export default function Home({ onShowToast, onOpenBot }) {
                     <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
                   </svg>
                 </div>
-                <span className="bento-turnaround-badge">48h Shortlist</span>
+                <span className="bento-turnaround-badge">Vetted Talent Network</span>
               </div>
               <h3 className="bento-heading">Cloud &amp; Platform Engineering</h3>
               <p className="bento-summary">
@@ -402,7 +370,6 @@ export default function Home({ onShowToast, onOpenBot }) {
         <LiveWatermark variant="wm-cyber" />
         <div className="container">
           <div className="section-header">
-            <span className="section-tag">THE FOUNDER ADVANTAGE</span>
             <h2 className="section-title">Direct Engagement with Ashwin Shiv</h2>
             <p className="section-subtitle">
               When you partner with Prime Talent Solutions, your hiring brief is never delegated down to junior screeners. You work directly with 18+ years of Australian IT recruitment authority.
@@ -501,7 +468,6 @@ export default function Home({ onShowToast, onOpenBot }) {
         <LiveWatermark variant="wm-ai" />
         <div className="container">
           <div className="section-header">
-            <span className="section-tag">OPEN MANDATES</span>
             <h2 className="section-title">Active Australian Enterprise Roles</h2>
             <p className="section-subtitle">Pre-qualified contract and permanent positions currently available across Sydney, Melbourne &amp; Canberra.</p>
           </div>
@@ -544,9 +510,8 @@ export default function Home({ onShowToast, onOpenBot }) {
         <LiveWatermark variant="wm-circuit" />
         <div className="container">
           <div className="section-header">
-            <span className="section-tag">RAPID ENGAGEMENT</span>
             <h2 className="section-title">60-Second Action Hub</h2>
-            <p className="section-subtitle">Whether you need to hire within 48 hours or explore discreet leadership opportunities, initiate direct engagement below.</p>
+            <p className="section-subtitle">Whether you are hiring or exploring discreet leadership opportunities, initiate direct engagement below.</p>
           </div>
 
           <div className="hub-wrapper-card">
@@ -590,7 +555,7 @@ export default function Home({ onShowToast, onOpenBot }) {
                   </div>
                 </div>
                 <div className="hub-submit-row">
-                  <button type="submit" className="hub-submit-btn">Deploy 48h Shortlist Mandate ↗</button>
+                  <button type="submit" className="hub-submit-btn">Submit Hiring Mandate ↗</button>
                   <span className="hub-trust-note">Ashwin Shiv personally handles your requirement</span>
                 </div>
               </form>

@@ -112,7 +112,7 @@ export const sampleJobs = [
     rate: "$1,250 - $1,400 / day",
     location: "Melbourne / Remote within AU",
     tags: ["Databricks", "Snowflake", "dbt", "PySpark"],
-    summary: "Architect enterprise lakehouse pipeline for major Australian health insurer. Immediate start, shortlisted within 48h."
+    summary: "Architect an enterprise lakehouse pipeline for a major Australian health insurer. Immediate start."
   },
   {
     id: 3,
