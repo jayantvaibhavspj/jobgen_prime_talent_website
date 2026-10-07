@@ -36,7 +36,7 @@ export default function About() {
               {/* Portrait Column */}
               <div className="founder-portrait-column">
                 <div className="founder-frame">
-                  <img src="/assets/ashwin-shiv.jpg" alt="Ashwin Shiv - Founder & Director" className="founder-photo" />
+                  <img src="/assets/ashwin-shiv-founder.png" alt="Ashwin Shiv - Founder & Director" className="founder-photo" />
                   <div className="founder-tech-hologram">
                     <span className="hologram-dot"></span>
                     <span>VERIFIED TECH DIRECTOR</span>
@@ -56,10 +56,6 @@ export default function About() {
                 <div className="founder-kicker">Founder Spotlight • My Story</div>
                 <h2 className="founder-name-title">Ashwin Shiv</h2>
                 <div className="founder-headline">18+ Years IT Recruitment Across Australia, APAC &amp; US</div>
-
-                <div className="founder-quote-banner">
-                  &ldquo;Throughout my career as an internal recruiter for Fortune 500s and top ANZ financial institutions, I learned that true talent acquisition is a strategic investment in organizational success — never a numbers game.&rdquo;
-                </div>
 
                 {/* Milestones */}
                 <div className="founder-milestones">

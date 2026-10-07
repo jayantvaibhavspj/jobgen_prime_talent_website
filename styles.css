@@ -1813,18 +1813,6 @@ body {
   margin-bottom: 22px;
 }
 
-.founder-quote-banner {
-  background: rgba(245, 158, 11, 0.06);
-  border-left: 3px solid var(--gold-primary);
-  padding: 16px 20px;
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  font-style: italic;
-  font-size: 0.98rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 28px;
-}
-
 .founder-milestones {
   display: flex;
   flex-direction: column;
@@ -1871,6 +1859,67 @@ body {
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.founder-ctas-home {
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+
+.founder-ctas-home > a {
+  min-height: 44px;
+  padding: 10px 18px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.founder-ctas-home .btn-primary-hero {
+  font-size: 0.9rem;
+}
+
+.founder-ctas-home .social-pill-btn {
+  font-size: 0.82rem;
+}
+
+@media (max-width: 640px) {
+  .founder-ctas-home {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    width: 100%;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .founder-ctas-home > a {
+    justify-content: center;
+    min-width: 0;
+    width: 100%;
+    min-height: 40px;
+    padding: 8px 6px;
+    text-align: center;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .founder-ctas-home .btn-primary-hero {
+    font-size: 0.68rem;
+  }
+
+  .founder-ctas-home .social-pill-btn {
+    gap: 5px;
+    font-size: 0.62rem;
+  }
+
+  .founder-ctas-home .social-pill-btn svg {
+    width: 15px;
+    height: 15px;
+    flex: 0 0 15px;
+  }
+
+  .founder-ctas-home > a span {
+    white-space: nowrap;
+  }
 }
 
 /* ==========================================================================
@@ -3573,13 +3622,26 @@ body {
     text-align: center;
   }
 
-  .founder-quote-banner {
-    border-left: none;
-    border-top: 3px solid var(--gold-primary);
-  }
-
   .founder-ctas {
     justify-content: center;
+  }
+
+  #about-us .founder-content-column {
+    min-width: 0;
+    text-align: left;
+  }
+
+  #about-us .founder-portrait-column {
+    text-align: center;
+  }
+
+  #about-us .founder-milestones,
+  #about-us .founder-milestones .milestone-item {
+    text-align: left;
+  }
+
+  #about-us .founder-ctas {
+    justify-content: flex-start;
   }
 
   .journey-grid-row {
@@ -3976,14 +4038,6 @@ body {
 
 .section-light .founder-headline {
   color: #0284c7;
-}
-
-.section-light .founder-quote-banner {
-  background: linear-gradient(135deg, #e1f1ff, #d5eaff);
-  border-left: 3.5px solid #0369a1;
-  border-radius: 0 14px 14px 0;
-  color: #1e293b;
-  padding: 18px 22px;
 }
 
 .section-light .milestone-item {
@@ -5776,4 +5830,3 @@ body {
     transform: translateY(0);
   }
 }
-

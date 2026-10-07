@@ -382,7 +382,7 @@ export default function Home({ onShowToast, onOpenBot }) {
               <div className="founder-portrait-column">
                 <div className="founder-frame">
                   <img 
-                    src="/assets/ashwin-shiv.jpg" 
+                    src="/assets/ashwin-shiv-founder.png"
                     alt="Ashwin Shiv - Founder & Managing Director" 
                     className="founder-photo" 
                   />
@@ -405,10 +405,6 @@ export default function Home({ onShowToast, onOpenBot }) {
                 <div className="founder-kicker">Founder Spotlight • Australian Tech Leadership</div>
                 <h2 className="founder-name-title">Ashwin Shiv</h2>
                 <div className="founder-headline">Director &amp; Principal Recruiter • 18+ Years Across Australia, APAC &amp; US</div>
-
-                <div className="founder-quote-banner">
-                  &ldquo;Throughout my career as an internal talent leader for Fortune 500s and top ANZ financial institutions, I learned that true talent acquisition is a strategic investment in organizational success — never a numbers game.&rdquo;
-                </div>
 
                 {/* 3 Pillars of Conviction */}
                 <div className="founder-milestones">
@@ -437,13 +433,10 @@ export default function Home({ onShowToast, onOpenBot }) {
                   </div>
                 </div>
 
-                <div className="founder-ctas">
+                <div className="founder-ctas founder-ctas-home">
                   <Link to="/about" className="btn-primary-hero">
                     <span>Read Full Leadership Story ↗</span>
                   </Link>
-                  <a href="#contact" className="btn-glass-hero">
-                    <span>Book 1-on-1 Call with Ashwin ↗</span>
-                  </a>
                   <a 
                     href="https://www.linkedin.com/in/ashwinshiv/" 
                     target="_blank" 
