@@ -27,6 +27,28 @@ function renderFormattedMessage(text) {
   });
 }
 
+function clampElementToViewport(element, maxWidth, maxHeight) {
+  const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+  const viewportHeight = document.documentElement.clientHeight || window.innerHeight;
+  if (maxWidth) {
+    element.style.width = `${Math.max(1, Math.min(maxWidth, viewportWidth - 16))}px`;
+  }
+  if (maxHeight) {
+    element.style.height = `${Math.max(1, Math.min(maxHeight, viewportHeight - 16))}px`;
+  }
+
+  const rect = element.getBoundingClientRect();
+  const maxLeft = Math.max(8, viewportWidth - element.offsetWidth - 8);
+  const maxTop = Math.max(8, viewportHeight - element.offsetHeight - 8);
+  const left = Math.min(Math.max(rect.left, 8), maxLeft);
+  const top = Math.min(Math.max(rect.top, 8), maxTop);
+
+  element.style.left = `${left}px`;
+  element.style.top = `${top}px`;
+  element.style.right = 'auto';
+  element.style.bottom = 'auto';
+}
+
 export default function PrimeBot({ externalOpenSignal }) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -62,14 +84,48 @@ export default function PrimeBot({ externalOpenSignal }) {
         const saved = JSON.parse(localStorage.getItem(key) || 'null');
         if (!element || !saved || !Number.isFinite(saved.left) || !Number.isFinite(saved.top)) return;
 
-        const maxLeft = Math.max(8, window.innerWidth - element.offsetWidth - 8);
-        const maxTop = Math.max(8, window.innerHeight - element.offsetHeight - 8);
-        element.style.left = `${Math.min(Math.max(saved.left, 8), maxLeft)}px`;
-        element.style.top = `${Math.min(Math.max(saved.top, 8), maxTop)}px`;
+        element.style.left = `${saved.left}px`;
+        element.style.top = `${saved.top}px`;
         element.style.right = 'auto';
         element.style.bottom = 'auto';
+        clampElementToViewport(
+          element,
+          element === windowRef.current ? 380 : undefined,
+          element === windowRef.current ? 520 : undefined
+        );
       });
     } catch (e) {}
+  }, []);
+
+  useEffect(() => {
+    const keepElementsInViewport = () => {
+      [anchorRef.current, windowRef.current].forEach((element) => {
+        if (element) {
+          clampElementToViewport(
+            element,
+            element === windowRef.current ? 380 : undefined,
+            element === windowRef.current ? 520 : undefined
+          );
+        }
+      });
+    };
+    const resizeObserver = 'ResizeObserver' in window
+      ? new ResizeObserver(keepElementsInViewport)
+      : null;
+
+    window.addEventListener('resize', keepElementsInViewport);
+    window.visualViewport?.addEventListener('resize', keepElementsInViewport);
+    if (resizeObserver) {
+      if (anchorRef.current) resizeObserver.observe(anchorRef.current);
+      if (windowRef.current) resizeObserver.observe(windowRef.current);
+    }
+    keepElementsInViewport();
+
+    return () => {
+      window.removeEventListener('resize', keepElementsInViewport);
+      window.visualViewport?.removeEventListener('resize', keepElementsInViewport);
+      resizeObserver?.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -83,8 +139,10 @@ export default function PrimeBot({ externalOpenSignal }) {
 
       drag.moved = true;
       suppressClickRef.current = true;
-      const maxLeft = Math.max(8, window.innerWidth - drag.element.offsetWidth - 8);
-      const maxTop = Math.max(8, window.innerHeight - drag.element.offsetHeight - 8);
+      const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+      const viewportHeight = document.documentElement.clientHeight || window.innerHeight;
+      const maxLeft = Math.max(8, viewportWidth - drag.element.offsetWidth - 8);
+      const maxTop = Math.max(8, viewportHeight - drag.element.offsetHeight - 8);
       drag.element.style.left = `${Math.min(Math.max(drag.left + deltaX, 8), maxLeft)}px`;
       drag.element.style.top = `${Math.min(Math.max(drag.top + deltaY, 8), maxTop)}px`;
       drag.element.style.right = 'auto';
@@ -143,8 +201,10 @@ export default function PrimeBot({ externalOpenSignal }) {
     const anchorRect = anchor.getBoundingClientRect();
     const chatWidth = chatWindow.offsetWidth;
     const chatHeight = chatWindow.offsetHeight;
-    const maxLeft = Math.max(8, window.innerWidth - chatWidth - 8);
-    const maxTop = Math.max(8, window.innerHeight - chatHeight - 8);
+    const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+    const viewportHeight = document.documentElement.clientHeight || window.innerHeight;
+    const maxLeft = Math.max(8, viewportWidth - chatWidth - 8);
+    const maxTop = Math.max(8, viewportHeight - chatHeight - 8);
     const left = Math.min(Math.max(anchorRect.right - chatWidth, 8), maxLeft);
     let top = anchorRect.top - chatHeight - 12;
     if (top < 8) top = anchorRect.bottom + 12;
@@ -275,6 +335,10 @@ export default function PrimeBot({ externalOpenSignal }) {
           className="copilot-trigger-btn" 
           id="copilotTriggerBtn" 
           aria-label={isOpen ? "Close PrimeBot" : "Open PrimeBot"}
+          onPointerDown={(event) => {
+            event.stopPropagation();
+            startDrag(event, anchorRef, 'primebot-anchor-position-v2');
+          }}
           onClick={toggleChat}
           type="button"
         >

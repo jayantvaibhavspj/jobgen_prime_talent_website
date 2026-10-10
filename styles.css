@@ -322,6 +322,7 @@ body {
 }
 
 .nav-link {
+  position: relative;
   color: rgba(255, 255, 255, 0.82);
   text-decoration: none;
   font-size: 0.92rem;
@@ -333,10 +334,27 @@ body {
   white-space: nowrap;
 }
 
+.nav-link::after {
+  position: absolute;
+  right: 16px;
+  bottom: 4px;
+  left: 16px;
+  height: 3px;
+  background: var(--gold-primary);
+  border-radius: var(--radius-full);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--trans-fast);
+}
+
 .nav-link:hover, .nav-link.active {
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  background: transparent;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  transform: scaleX(1);
 }
 
 /* Header Action Buttons */
@@ -615,6 +633,14 @@ body {
   justify-content: center;
   text-align: center;
   width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 700ms ease, visibility 700ms ease;
+}
+
+.hero-content-container.is-visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .hero-content {
@@ -706,6 +732,24 @@ body {
     0 4px 14px rgba(0, 0, 0, 0.9);
 }
 
+.hero-video-footer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto 22px;
+  color: #ffffff;
+  font-size: clamp(0.78rem, 1vw, 0.92rem);
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+.hero-video-footer strong {
+  font-weight: 700;
+}
+
 .hero-lead-text strong,
 .hero-subhead strong {
   color: #ffffff;
@@ -724,6 +768,10 @@ body {
   flex-wrap: wrap;
   gap: 16px;
   margin: 0 auto 4px;
+}
+
+.hero-video-actions {
+  margin-top: 0;
 }
 
 .btn-primary-hero {
@@ -2465,7 +2513,7 @@ body {
 
 .footer-top-grid {
   display: grid;
-  grid-template-columns: 1.35fr 1fr 1fr 1.25fr;
+  grid-template-columns: 1.35fr 1fr 1fr;
   gap: 40px;
   margin-bottom: 45px;
 }
@@ -2511,15 +2559,12 @@ body {
 }
 
 .footer-hq-pill {
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  align-items: flex-start;
   gap: 8px;
   font-size: 0.80rem;
   color: #e2e8f0;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 7px 14px;
-  border-radius: var(--radius-full);
+  line-height: 1.5;
   margin-bottom: 16px;
 }
 
@@ -2783,90 +2828,6 @@ body {
   transform: translateX(4px);
 }
 
-/* Col 4: Strategic AI Co-Pilot Card */
-.jobgen-footer-card {
-  background: rgba(14, 165, 233, 0.05);
-  border: 1px solid rgba(14, 165, 233, 0.25);
-  border-radius: 12px;
-  padding: 20px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
-}
-
-.jobgen-card-badge {
-  display: inline-flex;
-  align-self: flex-start;
-  padding: 3px 9px;
-  border-radius: var(--radius-full);
-  background: rgba(14, 165, 233, 0.15);
-  border: 1px solid rgba(14, 165, 233, 0.35);
-  color: #38bdf8;
-  font-size: 0.70rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.jobgen-brand-lockup {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.jobgen-logo-img {
-  height: 28px;
-  width: auto;
-  object-fit: contain;
-}
-
-.jobgen-title-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.jobgen-main-name {
-  font-family: var(--font-heading);
-  font-size: 1.10rem;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.1;
-}
-
-.jobgen-tagline {
-  font-size: 0.72rem;
-  color: #94a3b8;
-  font-weight: 500;
-}
-
-.jobgen-desc-text {
-  font-size: 0.84rem;
-  color: #cbd5e1;
-  line-height: 1.55;
-  margin: 0;
-}
-
-.jobgen-feature-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 2px;
-}
-
-.jobgen-pill {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #34d399;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  padding: 3px 9px;
-  border-radius: var(--radius-full);
-}
-
 /* Traditional Custodians Acknowledgement */
 .indigenous-acknowledgement {
   background: rgba(245, 158, 11, 0.04);
@@ -2892,7 +2853,7 @@ body {
 .footer-bottom-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   flex-wrap: wrap;
@@ -2998,20 +2959,20 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-left: auto;
-  padding: 8px 16px;
-  background: rgba(14, 165, 233, 0.06);
-  border: 1px solid rgba(14, 165, 233, 0.22);
-  border-radius: var(--radius-full);
-  transition: all 0.25s ease;
-  backdrop-filter: blur(8px);
+  margin-left: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  transition: none;
+  backdrop-filter: none;
 }
 
 .footer-powered-by:hover {
-  background: rgba(14, 165, 233, 0.12);
-  border-color: rgba(14, 165, 233, 0.45);
-  box-shadow: 0 4px 20px rgba(14, 165, 233, 0.25);
-  transform: translateY(-2px);
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
 }
 
 .footer-powered-text {
@@ -3030,15 +2991,15 @@ body {
 }
 
 .footer-powered-logo {
-  height: 24px;
+  height: 22px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(14, 165, 233, 0.4));
-  transition: transform 0.25s ease;
+  filter: none;
+  transition: none;
 }
 
 .footer-powered-by:hover .footer-powered-logo {
-  transform: scale(1.08);
+  transform: none;
 }
 
 .footer-powered-brand {
@@ -3070,6 +3031,7 @@ body {
   pointer-events: auto;
   touch-action: none;
   cursor: grab;
+  max-width: calc(100vw - 16px);
 }
 
 .copilot-floating-anchor:active {
@@ -3080,6 +3042,7 @@ body {
 .copilot-popup-bubble {
   position: relative;
   padding: 8px 16px;
+  max-width: calc(100vw - 16px);
   background: rgba(10, 16, 33, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -3087,7 +3050,7 @@ body {
   border-radius: 14px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 25px rgba(14, 165, 233, 0.28);
   cursor: pointer;
-  white-space: nowrap;
+  white-space: normal;
   animation: copilot-bubble-float 3.2s ease-in-out infinite;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
   pointer-events: auto;
@@ -3165,6 +3128,7 @@ body {
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: auto;
   user-select: none;
+  touch-action: none;
 }
 
 .copilot-trigger-btn:hover {
@@ -3257,10 +3221,10 @@ body {
   position: fixed;
   bottom: 96px;
   right: 24px;
-  width: 380px;
-  max-width: calc(100vw - 32px);
-  height: 520px;
-  max-height: calc(100vh - 120px);
+  width: min(380px, calc(100vw - 16px));
+  max-width: calc(100vw - 16px);
+  height: min(520px, calc(100vh - 16px));
+  max-height: calc(100vh - 16px);
   background: rgba(10, 15, 28, 0.96);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
@@ -3668,6 +3632,20 @@ body {
 
   .hero-section {
     padding-top: 100px;
+    padding-bottom: 88px;
+  }
+
+  .hero-video-footer {
+    font-size: 0.76rem;
+    margin-bottom: 18px;
+  }
+
+  .hero-video-actions {
+    margin-top: 0;
+  }
+
+  .hero-content-container {
+    margin: auto 0;
   }
 
   .desktop-nav, .nav-phone-link, .nav-portal-btn {
@@ -3697,6 +3675,10 @@ body {
 
   .footer-top-grid {
     grid-template-columns: 1fr;
+  }
+
+  .footer-bottom-bar {
+    justify-content: center;
   }
 
   .form-grid-2col {
@@ -3803,10 +3785,10 @@ body {
   transition: opacity 0.3s ease;
 }
 
-/* Pillar 1: Cloud & Platform Engineering (Azure Sky Hue) */
+/* Pillar 1: Cloud & Platform Engineering */
 .section-light .bento-card.card-cloud,
 .section-light .bento-card:nth-child(1) {
-  background: linear-gradient(155deg, #ffffff 0%, #f0f7ff 45%, #e0f2fe 100%);
+  background: #f0e7ff;
   border: 1px solid rgba(2, 132, 199, 0.22);
 }
 .section-light .bento-card.card-cloud::before,
@@ -3815,7 +3797,7 @@ body {
 }
 .section-light .bento-card.card-cloud:hover,
 .section-light .bento-card:nth-child(1):hover {
-  background: linear-gradient(155deg, #ffffff 0%, #e6f3fd 40%, #cce9fd 100%);
+  background: #e4d3ff;
   border-color: rgba(2, 132, 199, 0.55);
   box-shadow: 0 22px 50px -10px rgba(2, 132, 199, 0.22), 0 8px 20px rgba(15, 23, 42, 0.06);
   transform: translateY(-6px);
@@ -3839,10 +3821,10 @@ body {
   border-color: #0284c7;
 }
 
-/* Pillar 2: Data Engineering & GenAI (Emerald Mint Hue) */
+/* Pillar 2: Data Engineering & GenAI */
 .section-light .bento-card.card-data,
 .section-light .bento-card:nth-child(2) {
-  background: linear-gradient(155deg, #ffffff 0%, #f0fdf9 45%, #d1fae5 100%);
+  background: #f0e7ff;
   border: 1px solid rgba(16, 185, 129, 0.22);
 }
 .section-light .bento-card.card-data::before,
@@ -3851,7 +3833,7 @@ body {
 }
 .section-light .bento-card.card-data:hover,
 .section-light .bento-card:nth-child(2):hover {
-  background: linear-gradient(155deg, #ffffff 0%, #e3fcf3 40%, #bbf7d0 100%);
+  background: #e4d3ff;
   border-color: rgba(16, 185, 129, 0.55);
   box-shadow: 0 22px 50px -10px rgba(16, 185, 129, 0.22), 0 8px 20px rgba(15, 23, 42, 0.06);
   transform: translateY(-6px);
@@ -3875,10 +3857,10 @@ body {
   border-color: #059669;
 }
 
-/* Pillar 3: Cybersecurity & Zero-Trust (Violet Indigo Defense Hue) */
+/* Pillar 3: Cybersecurity & Zero-Trust */
 .section-light .bento-card.card-cyber,
 .section-light .bento-card:nth-child(3) {
-  background: linear-gradient(155deg, #ffffff 0%, #faf5ff 45%, #ede9fe 100%);
+  background: #f0e7ff;
   border: 1px solid rgba(139, 92, 246, 0.22);
 }
 .section-light .bento-card.card-cyber::before,
@@ -3887,7 +3869,7 @@ body {
 }
 .section-light .bento-card.card-cyber:hover,
 .section-light .bento-card:nth-child(3):hover {
-  background: linear-gradient(155deg, #ffffff 0%, #f4e8fe 40%, #ddd6fe 100%);
+  background: #e4d3ff;
   border-color: rgba(139, 92, 246, 0.55);
   box-shadow: 0 22px 50px -10px rgba(139, 92, 246, 0.22), 0 8px 20px rgba(15, 23, 42, 0.06);
   transform: translateY(-6px);
@@ -3911,10 +3893,10 @@ body {
   border-color: #7c3aed;
 }
 
-/* Pillar 4: Digital & Tech Delivery Leadership (Amber Gold Hue) */
+/* Pillar 4: Digital & Tech Delivery Leadership */
 .section-light .bento-card.card-digital,
 .section-light .bento-card:nth-child(4) {
-  background: linear-gradient(155deg, #ffffff 0%, #fffbeb 45%, #fef3c7 100%);
+  background: #f0e7ff;
   border: 1px solid rgba(217, 119, 6, 0.24);
 }
 .section-light .bento-card.card-digital::before,
@@ -3923,7 +3905,7 @@ body {
 }
 .section-light .bento-card.card-digital:hover,
 .section-light .bento-card:nth-child(4):hover {
-  background: linear-gradient(155deg, #ffffff 0%, #fef6d8 40%, #fde68a 100%);
+  background: #e4d3ff;
   border-color: rgba(217, 119, 6, 0.55);
   box-shadow: 0 22px 50px -10px rgba(245, 158, 11, 0.24), 0 8px 20px rgba(15, 23, 42, 0.06);
   transform: translateY(-6px);
@@ -4242,7 +4224,7 @@ body {
   overflow: hidden;
   border-radius: 24px;
   padding: 42px 36px;
-  background: linear-gradient(155deg, #ffffff 0%, #f0f7ff 45%, #e0f2fe 100%);
+  background: #f0e7ff;
   border: 1px solid rgba(2, 132, 199, 0.22);
   box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.16);
 }
@@ -4283,7 +4265,7 @@ body {
   overflow: hidden;
   border-radius: 24px;
   padding: 42px 36px;
-  background: linear-gradient(155deg, #ffffff 0%, #fffbeb 45%, #fef3c7 100%);
+  background: #f0e7ff;
   border: 1px solid rgba(217, 119, 6, 0.24);
   box-shadow: 0 20px 50px -10px rgba(245, 158, 11, 0.16);
 }
@@ -4398,14 +4380,14 @@ body {
 
 /* Pillar 1: Cloud & Platform Job */
 .section-light .job-card-item.card-cloud {
-  background: linear-gradient(155deg, #ffffff 0%, #f0f7ff 45%, #e0f2fe 100%);
+  background: #f0e7ff;
   border: 1px solid rgba(2, 132, 199, 0.22);
 }
 .section-light .job-card-item.card-cloud::before {
   background: linear-gradient(90deg, #38bdf8, #0284c7);
 }
 .section-light .job-card-item.card-cloud:hover {
-  background: linear-gradient(155deg, #ffffff 0%, #e6f3fd 40%, #cce9fd 100%);
+  background: #e4d3ff;
   border-color: rgba(2, 132, 199, 0.55);
   box-shadow: 0 22px 50px -10px rgba(2, 132, 199, 0.22), 0 8px 20px rgba(15, 23, 42, 0.05);
   transform: translateY(-5px);
@@ -4418,14 +4400,14 @@ body {
 
 /* Pillar 2: Data & AI Job */
 .section-light .job-card-item.card-data {
-  background: linear-gradient(155deg, #ffffff 0%, #f0fdf9 45%, #d1fae5 100%);
+  background: #f0e7ff;
   border: 1px solid rgba(16, 185, 129, 0.22);
 }
 .section-light .job-card-item.card-data::before {
   background: linear-gradient(90deg, #34d399, #059669);
 }
 .section-light .job-card-item.card-data:hover {
-  background: linear-gradient(155deg, #ffffff 0%, #e3fcf3 40%, #bbf7d0 100%);
+  background: #e4d3ff;
   border-color: rgba(16, 185, 129, 0.55);
   box-shadow: 0 22px 50px -10px rgba(16, 185, 129, 0.22), 0 8px 20px rgba(15, 23, 42, 0.05);
   transform: translateY(-5px);
@@ -4438,14 +4420,14 @@ body {
 
 /* Pillar 3: Cyber Job */
 .section-light .job-card-item.card-cyber {
-  background: linear-gradient(155deg, #ffffff 0%, #faf5ff 45%, #ede9fe 100%);
+  background: #f0e7ff;
   border: 1px solid rgba(139, 92, 246, 0.22);
 }
 .section-light .job-card-item.card-cyber::before {
   background: linear-gradient(90deg, #a78bfa, #7c3aed);
 }
 .section-light .job-card-item.card-cyber:hover {
-  background: linear-gradient(155deg, #ffffff 0%, #f4e8fe 40%, #ddd6fe 100%);
+  background: #e4d3ff;
   border-color: rgba(139, 92, 246, 0.55);
   box-shadow: 0 22px 50px -10px rgba(139, 92, 246, 0.22), 0 8px 20px rgba(15, 23, 42, 0.05);
   transform: translateY(-5px);
@@ -4458,14 +4440,14 @@ body {
 
 /* Pillar 4: Digital Leadership Job */
 .section-light .job-card-item.card-digital {
-  background: linear-gradient(155deg, #ffffff 0%, #fffbeb 45%, #fef3c7 100%);
+  background: #f0e7ff;
   border: 1px solid rgba(217, 119, 6, 0.24);
 }
 .section-light .job-card-item.card-digital::before {
   background: linear-gradient(90deg, #fbbf24, #d97706);
 }
 .section-light .job-card-item.card-digital:hover {
-  background: linear-gradient(155deg, #ffffff 0%, #fef6d8 40%, #fde68a 100%);
+  background: #e4d3ff;
   border-color: rgba(217, 119, 6, 0.55);
   box-shadow: 0 22px 50px -10px rgba(245, 158, 11, 0.24), 0 8px 20px rgba(15, 23, 42, 0.05);
   transform: translateY(-5px);
@@ -4958,8 +4940,8 @@ body {
 
 .copilot-chat-window {
   position: fixed !important;
-  bottom: 96px !important;
-  right: 24px !important;
+  bottom: 96px;
+  right: 24px;
   overflow: hidden;
   background: linear-gradient(155deg, rgba(16, 24, 45, 0.98) 0%, rgba(9, 14, 26, 0.98) 100%) !important;
   border: 1px solid rgba(14, 165, 233, 0.35) !important;

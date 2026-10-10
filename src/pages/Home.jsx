@@ -8,6 +8,14 @@ export default function Home({ onShowToast, onOpenBot }) {
   // Video state
   const videoRef = useRef(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(() => window.scrollY > 0);
+
+  useEffect(() => {
+    const updateHeroVisibility = () => setHasScrolled(window.scrollY > 0);
+
+    window.addEventListener('scroll', updateHeroVisibility, { passive: true });
+    return () => window.removeEventListener('scroll', updateHeroVisibility);
+  }, []);
 
   // Stats Counters
   const [counters, setCounters] = useState({
@@ -161,7 +169,7 @@ export default function Home({ onShowToast, onOpenBot }) {
 
         </div>
 
-        <div className="container hero-content-container">
+        <div className={`container hero-content-container ${hasScrolled ? 'is-visible' : ''}`}>
           <div className="hero-content">
             <h1 className="hero-main-title">
               Top 1% Australian Tech Talent. <br />
@@ -173,12 +181,13 @@ export default function Home({ onShowToast, onOpenBot }) {
               </span>
             </h1>
 
-            <p className="hero-lead-text">
-              Specialized <strong>Cloud, Data &amp; AI, and Cybersecurity</strong> for Australian enterprises. <br />
+            <p className="hero-video-footer">
+              Specialized <strong>Cloud, Data &amp; AI, and Cybersecurity</strong> for Australian enterprises
+              <br />
               Led personally by <strong>Ashwin Shiv</strong> with 18+ years of market authority.
             </p>
 
-            <div className="hero-actions-cluster">
+            <div className="hero-actions-cluster hero-video-actions">
               <a href="#action-hub" className="btn-primary-hero">
                 <span>Hire Tech Leaders ↗</span>
               </a>
